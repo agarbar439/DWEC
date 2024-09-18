@@ -1,12 +1,12 @@
 function cambiaImagen() {
     var image = document.getElementById("image");
-    if (image.src.matches("gato")) {
+    if (image.src.includes("gato")) {
       image.src =
         "gato.jpeg";
-    } else if (image.src.matches("pizza")){
+    } else if (image.src.includes("pizza")){
       image.src =
         "paisaje.jpeg";
-    } else if (image.src.matches("paisaje."){
+    } else{
       image.src = "pizza.png";
     }
   }
