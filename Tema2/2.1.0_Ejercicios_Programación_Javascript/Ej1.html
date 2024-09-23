@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 1</title>
+</head>
+<body>
+    <h3>Realiza un programa JavaScript que calcule el área y la longitud de una circunferencia de radio 5.
+
+    </h3>
+
+    <script>
+        const PI = 3.14;
+        const radio = 5;
+        function calcularArea(radio){
+            return Math.pow(radio,2)*PI;
+        }
+
+        function calcularLongitud(radio){
+            return radio*PI;
+        }
+
+        console.log(calcularArea(radio));
+        console.log(calcularLongitud(radio));
+
+    </script>
+</body>
+</html>
