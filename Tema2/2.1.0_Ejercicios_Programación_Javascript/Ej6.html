@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ejercicio 6</title>
+</head>
+
+<body>
+  <h3>
+    JavaScript puede manejar eventos en una página web para conocer, por
+    ejemplo, cuándo el ratón pasa por encima de un elemento. Pon un ejemplo de
+    uso para cada uno de los siguientes eventos:
+  </h3>
+
+  <!--Al pasar el raton o salir-->
+  <button onmouseover='this.style.color="#FF0004"' ; onmouseout='this.style.color="#FFE500"'>
+    Pasa el raton
+  </button>
+  <br /><br />
+  <!--Al dejar el campo de texto: Onblur-->
+  Nombre <input type="text" id="blur" onblur="modificar()" />
+
+  <script>
+    //Funcion para utilizar el elemento onblur
+    function modificar() {
+      var x = document.getElementById("blur"); // Guadar el id del elemento a usar
+      x.value = x.value.toUpperCase(); // Pasar a mayusculas
+    }
+  </script>
+</body>
+
+</html>
