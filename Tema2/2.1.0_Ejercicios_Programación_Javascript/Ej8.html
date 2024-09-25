@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ejercicio 8</title>
+</head>
+
+<body>
+  <h3>
+    Realiza un script que extraiga el mes y el año de una fecha concreta.
+  </h3>
+
+  <script>
+    // Funcion para extraer el mes y año de una fecha
+    function extraerMesAño() {
+      var fecha = new Date("08/16/2016");
+
+      console.log(fecha.getMonth() + 1); // Sumar 1 para obtener el mes correcto
+      console.log(fecha.getFullYear());
+    }
+    extraerMesAño(); // Llamar a la función para ver los resultados en la consola
+
+  </script>
+</body>
+
+</html>

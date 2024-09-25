@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ejercicio 10</title>
+</head>
+
+<body>
+  <h3>
+    Como variante de la práctica guiada, se pide realizar un script utilizando bucles que muestre en una página web el rombo de la figura 2.3. El número de filas que tiene el rombo será configurable.
+  </h3>
+  
+<div id="rombo"></div>
+
+<script>
+    function generarRomboHueco(tamaño) {
+        let rombo = "";
+        let n = tamaño;
+
+        // Parte superior
+        for (let i = 1; i <= n; i++) {
+            let fila = "";
+            for (let j = 1; j <= n - i; j++) {
+                fila += " ";
+            }
+            fila += "*";
+            if (i > 1) {
+                for (let j = 1; j <= (2 * i - 3); j++) {
+                    fila += " ";
+                }
+                fila += "*";
+            }
+            rombo += fila + "\n";
+        }
+
+        // Parte inferior
+        for (let i = n - 1; i >= 1; i--) {
+            let fila = "";
+            for (let j = 1; j <= n - i; j++) {
+                fila += " ";
+            }
+            fila += "*";
+            if (i > 1) {
+                for (let j = 1; j <= (2 * i - 3); j++) {
+                    fila += " ";
+                }
+                fila += "*";
+            }
+            rombo += fila + "\n";
+        }
+
+        return rombo;
+    }
+
+    const tamaño = 4;  // Tamaño del rombo 
+    const rombo = generarRomboHueco(tamaño);
+    document.getElementById("rombo").innerHTML = `<pre>${rombo}</pre>`;
+</script>
+</body>
+
+</html>
