@@ -1,63 +1,66 @@
 <!DOCTYPE html>
+
 <html>
 
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Ejercicio 10</title>
+    <title>Ejercicio Rombo</title>
 </head>
 
 <body>
-  <h3>
-    Como variante de la práctica guiada, se pide realizar un script utilizando bucles que muestre en una página web el rombo de la figura 2.3. El número de filas que tiene el rombo será configurable.
-  </h3>
-  
-<div id="rombo"></div>
 
-<script>
-    function generarRombo(tamaño) {
-        let rombo = "";
-        let n = tamaño;
+    <div id="caja"></div>
 
-        // Parte superior
-        for (let i = 1; i <= n; i++) {
-            let fila = "";
-            for (let j = 1; j <= n - i; j++) {
-                fila += " ";
+    <script>
+
+        var caja = document.getElementById("caja");
+
+        var limite = 4;
+
+        //Creciente
+        for (var i = 0; i < limite; i++) {
+
+            var asterisco = "";
+            var espacioHTML = "";
+
+            for (var k = 0; k < limite - i - 1; k++) {
+                espacioHTML += "&nbsp&nbsp";
             }
-            fila += "*";
-            if (i > 1) {
-                for (let j = 1; j <= (2 * i - 3); j++) {
-                    fila += " ";
+
+            for (var j = 0; j < 2 * i + 1; j++) {
+                if (j == 0 || j == (2 * i)) {
+                    asterisco += "*"; // Imprimir solo en el primer y último lugar
+                } else {
+                    asterisco += "&nbsp&nbsp"; // Espacios en medio para hacer el hueco
                 }
-                fila += "*";
             }
-            rombo += fila + "\n";
+
+            caja.innerHTML = caja.innerHTML + espacioHTML + asterisco + "<br>";
         }
 
-        // Parte inferior
-        for (let i = n - 1; i >= 1; i--) {
-            let fila = "";
-            for (let j = 1; j <= n - i; j++) {
-                fila += " ";
+        //Decreciente
+        for (var i = limite - 2; i >= 0; i--) {
+            var asterisco = "";
+            var espacioHTML = "";
+
+            for (var k = 0; k < limite - i - 1; k++) {
+                espacioHTML += "&nbsp&nbsp";
             }
-            fila += "*";
-            if (i > 1) {
-                for (let j = 1; j <= (2 * i - 3); j++) {
-                    fila += " ";
+
+            for (var j = 0; j < 2 * i + 1; j++) {
+                if (j == 0 || j == (2 * i)) {
+                    asterisco += "*"; // Imprimir solo en el primer y último lugar
+                } else {
+                    asterisco += "&nbsp&nbsp"; // Espacios en medio para hacer el hueco
                 }
-                fila += "*";
             }
-            rombo += fila + "\n";
+
+
+            caja.innerHTML = caja.innerHTML + espacioHTML + asterisco + "<br>";
         }
 
-        return rombo;
-    }
 
-    const tamaño = 4;  // Tamaño del rombo 
-    const rombo = generarRombo(tamaño);
-    document.getElementById("rombo").innerHTML = `<pre>${rombo}</pre>`;
-</script>
+    </script>
+
 </body>
 
 </html>
