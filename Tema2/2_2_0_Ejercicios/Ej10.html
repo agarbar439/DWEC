@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 10</title>
+</head>
+
+<body>
+    <h3>Ejercicio 10</h3>
+    <div id="menu">
+        a. Área del triángulo (b*h/2).
+        b. Área del rectángulo (b*h).
+        c. Área del círculo (π*r2)
+        d. Salir.
+    </div>
+
+    <script>
+        function mostrarMenu() {
+            var menu1 = document.getElementById("menu").innerHTML;
+            return prompt(menu1);
+        }
+        var valorElegido = mostrarMenu();
+
+        function pedirBase() {
+            return parseInt(prompt("Escribe la base"));
+        }
+        function pedirAltura() {
+            return parseInt(prompt("Escribe la altura"));
+        }
+
+        function pedirRadio() {
+            return parseInt(prompt("Escribe el radio"));
+        }
+
+        function areaTriangulo() {
+            var base = pedirBase();
+            var altura = pedirAltura();
+            var operacion = (base * altura) / 2;
+            return operacion;
+        }
+
+        function areaRectangulo() {
+            var base = pedirBase();
+            var altura = pedirAltura();
+            var operacion = base * altura;
+            return operacion;
+        }
+
+        function areaCirculo() {
+            var radio = pedirRadio();
+            var operacion = 3.14 * Math.pow(radio, 2);
+            return operacion;
+        }
+
+        function operaciones(valorElegido) {
+            switch (valorElegido) {
+                case "a":
+                    var area = areaTriangulo();
+                    console.log(area);
+                    break;
+                case "b":
+                    var area = areaRectangulo();
+                    console.log(area);
+                    break;
+                case "c":
+                    var area = areaCirculo();
+                    console.log(area);
+                    break;
+                default:
+                    console.log("Opción no válida");
+            }
+        }
+
+        operaciones(valorElegido);
+    </script>
+</body>
+
+</html>

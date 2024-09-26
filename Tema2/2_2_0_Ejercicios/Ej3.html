@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ejercicio 3</title>
+  </head>
+
+  <body>
+    <p>
+      Elabora una calculadora. El programa debe pedirle al usuario un número,
+      después un símbolo(+,-,*,/,**,%) y después otro número. El programa debe
+      mostrar por consola el resultado de la operación.
+    </p>
+
+    <p id="valorResultado"></p>
+
+    <script>
+      //Funcion para pedir el primer numero
+      function pedirNum() {
+        return parseInt(prompt("Escribe un numero"));
+      }
+
+      //Funcion para pedir el segundo numero
+      function pedirNum2() {
+        return parseInt(prompt("Escribe otro numero"));
+      }
+
+      //Funcion para pedir el signo de operacion
+      function pedirSigno() {
+        return prompt("Escribe un signo +,-,*,/,**,%");
+      }
+      var resultado = 0; //Variable para almacenar el resultado
+
+      //Funcion con las operaciones de la calcualdora
+      function calculadora(n1, n2, signo) {
+        switch (signo) {
+          case "+":
+            resultado = n1 + n2;
+            console.log(resultado);
+            break;
+          case "-":
+            resultado = n1 - n2;
+            console.log(resultado);
+            break;
+          case "*":
+            resultado = n1 * n2;
+            console.log(resultado);
+            break;
+          case "/":
+            if (n2 != 0) {
+              resultado = n1 / n2;
+              console.log(resultado);
+            } else {
+              console.log("El segundo numero debe de ser positivo");
+            }
+
+            break;
+          case "**":
+            resultado = n1 ** n2;
+            console.log(resultado);
+            break;
+          case "%":
+            resultado = n1 % n2;
+            console.log(resultado);
+            break;
+          default:
+            console.log("Error.Escribe un valor valido");
+        }
+      }
+
+      // Llamadas a las funciones para ejecutar la calculadora
+      var num1 = pedirNum();
+      var signo = pedirSigno();
+      var num2 = pedirNum2();
+      calculadora(num1, num2, signo);
+    </script>
+  </body>
+</html>

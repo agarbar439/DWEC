@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ejercicio 5</title>
+</head>
+
+<body>
+    <p>
+        Escribe un programa que le pida al usuario un número, y muestre en consola
+        su factorial (usa recursividad).
+    </p>
+
+    <script>
+        //Funcion para pedir el primer numero
+        function pedirNum() {
+            return parseInt(prompt("Escribe un numero"));
+        }
+
+        function calcularFactorial(n1) {
+            if (n1 <= 0) {
+                // Si el numero es menor o igual que 0 o es string
+                return -1;
+            } else {
+                // Calculo del factorial
+                var factorial = 1; // Valor por defecto
+                for (var i = 1; i <= n1; i++) {
+                    // En cada iteración se multiplica el valor acumulado de factorial por el valor actual de $i
+                    var factorial = factorial * i;
+                }
+                return factorial; // Devolver el factorial
+            }
+        }
+        var n = pedirNum();
+        var resultadoFactorial = calcularFactorial(n);
+        console.log(resultadoFactorial);
+    </script>
+</body>
+
+</html>

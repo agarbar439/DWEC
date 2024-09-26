@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 10</title>
+</head>
+
+<body>
+    <h3>Crea un programa que detecte cuántos elementos repetidos hay en un array unidimensional generado aleatoriamente
+        de números enteros (dimensión 20) e indique en qué posiciones se encuentran.</h3>
+
+    <script>
+        function numAleatorio() {
+            return Math.floor(Math.random() * 30);
+        }
+
+        // Crear un array
+        var arr = [];
+
+        // Insertar en el array números aleatorios
+        for (var i = 0; i < 10; i++) {
+            arr.push(numAleatorio());
+        }
+
+        // Elementos repetidos
+        var repetidos = 0;
+        var posiciones = [];
+        for (var x = 0; x < arr.length; x++) {
+            for (var j = x + 1; j < arr.length; j++) {
+                if (arr[x] == arr[j]) {
+                    repetidos++;
+                    posiciones.push[i];
+                    break;
+                }
+            }
+        }
+
+       
+
+        console.log(arr);
+        console.log("Número de repetidos:", repetidos);
+
+        for(var p = 0; p < posiciones.length;i++){
+            console.log(posiciones[p]);
+        }
+    </script>
+
+</body>
+
+</html>
