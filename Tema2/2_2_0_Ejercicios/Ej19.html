@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 19</title>
+</head>
+
+<body>
+    <h1>Matriz Original</h1>
+    <table id="matrizOriginal" ></table>
+
+    <h1>Matriz Traspuesta</h1>
+    <table id="matrizTranspuesta" ></table>
+
+    <script>
+        // Crear la matriz original
+        var matrizOriginal = [
+            [1, 2, 3],
+            [4, 5, 6],
+            [7, 8, 9]
+        ];
+
+        // Función para calcular la traspuesta 
+        function traspuesta(matriz) {
+            var matrizTranspuesta = [];
+            for (var i = 0; i < matriz[0].length; i++) {
+                matrizTranspuesta[i] = [];
+                for (var j = 0; j < matriz.length; j++) {
+                    matrizTranspuesta[i][j] = matriz[j][i];
+                }
+            }
+            return matrizTranspuesta;
+        }
+
+        // Calcular la traspuesta de la matriz original
+        var matrizTranspuesta = traspuesta(matrizOriginal);
+
+        // Función para mostrar la matriz
+        function mostrarMatriz(matriz, idTabla) {
+            var html = "";
+            matriz.forEach(function(fila) {
+                fila.forEach(function(valor) {
+                    html += "<td>" + valor + "</td>";
+                });
+                html += "</tr>";
+            });
+            document.getElementById(idTabla).innerHTML = html;
+        }
+
+        // Resultado
+        mostrarMatriz(matrizOriginal, 'matrizOriginal');
+        mostrarMatriz(matrizTranspuesta, 'matrizTranspuesta');
+    </script>
+</body>
+
+</html>
