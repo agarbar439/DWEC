@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ejercicio 11</title>
+  </head>
+  <body>
+ 
+    <p id="mostrarArray"></p>
+
+    <button type="button" onclick="comprobarMultiplos(arr)">
+      Ver numeros múltiplos de 3
+    </button>
+    <p id="multiplos"></p>
+    <script>
+      // Función para generar números aleatorios entre 0 y 29
+      function numAleatorio() {
+        return Math.floor(Math.random() * 30);
+      }
+
+      // Crear un array vacío
+      var arr = [];
+
+      // Insertar en el array 10 números aleatorios
+      for (var i = 0; i < 10; i++) {
+        arr.push(numAleatorio());
+      }
+
+      // Función para mostrar el array en pantalla
+      function mostrarArray(arr) {
+        document.getElementById("mostrarArray").innerHTML = arr.join(", ");
+      }
+
+      // Mostrar el array inicial
+      mostrarArray(arr);
+
+      // Función para comprobar y mostrar los múltiplos de 3
+      function comprobarMultiplos(arr) {
+        var numeros = []; // Array para almacenar los múltiplos de 3
+        for (var i = 0; i < arr.length; i++) {
+          if (arr[i] % 3 == 0) {
+            numeros.push(arr[i]); // Añadir el número al array si es múltiplo de 3
+          }
+        }
+
+        // Mostrar los múltiplos o un mensaje si no hay múltiplos
+        if (numeros.length > 0) {
+          document.getElementById("multiplos").innerHTML =
+            "Múltiplos de 3: " + numeros.join(", ");
+        } else {
+          document.getElementById("multiplos").innerHTML =
+            "No hay múltiplos de 3";
+        }
+      }
+    </script>
+  </body>
+</html>

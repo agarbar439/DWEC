@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ejercicio 15</title>
+</head>
+
+<body>
+  <h3>
+    Crea un programa que indique cuál es el elemento más repetido de un array
+    unidimensional y cuántas veces aparece.
+  </h3>
+  <p id="nRepetido"></p>
+  <p id="nVeces"></p>
+
+  <script>
+    function numAleatorio() {
+      return Math.floor(Math.random() * 30);
+    }
+
+    // Crear un array
+    var arr = [10, 10, 2, 2, 2, 3, 5, 6, 9];
+
+    /*  // Insertar en el array números aleatorios
+    for (var i = 0; i < 10; i++) {
+      arr.push(numAleatorio());
+    }*/
+
+    var almacenarNumero = 0; // Variable para almacenar el numero mas repetido
+    var nVeces = 0; // Variable para contar el numero de veces que aparece
+
+    for (var i = 0; i < arr.length; i++) {
+      var contador = 0; // Contador para cada número
+
+      for (var j = 0; j < arr.length; j++) {
+        if (arr[i] === arr[j]) {
+          contador++; // Si son iguales, aumentar el contador
+        }
+      }
+
+      // Si el contador es mayor que el máximo anterior, actualizar el número más repetido
+      if (contador > nVeces) {
+        almacenarNumero = arr[i];
+        nVeces = contador;
+      }
+    }
+
+    document.getElementById("nRepetido").innerHTML = "Número más repetido: " + almacenarNumero;
+    document.getElementById("nVeces").innerHTML = "Número de veces: " + nVeces;
+
+  </script>
+</body>
+
+</html>

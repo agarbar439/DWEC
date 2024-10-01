@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ejercicio 14</title>
+  </head>
+
+  <body>
+    <h3>
+      Escribe un programa que realice una copia manual de un array
+      unidimensional.
+    </h3>
+
+    <p id="array1"></p>
+    <p id="array2"></p>
+    <script>
+      function numAleatorio() {
+        return Math.floor(Math.random() * 30);
+      }
+
+      // Crear un array
+      var arr = [];
+
+      // Insertar en el array números aleatorios
+      for (var i = 0; i < 10; i++) {
+        arr.push(numAleatorio());
+      }
+
+      // Función para clonar un array
+      function clonarArray(arr1) {
+        return arr1.slice(); // Copia el array
+      }
+
+      // Clonar el array original
+      var arr2 = clonarArray(arr);
+      // Mostrar el contenido del array original y el array clonado
+      document.getElementById("array1").innerHTML = `Array original: ${arr.join(
+        ", "
+      )}`;
+      document.getElementById("array2").innerHTML = `Array clonado: ${arr2.join(
+        ", "
+      )}`;
+    </script>
+  </body>
+</html>

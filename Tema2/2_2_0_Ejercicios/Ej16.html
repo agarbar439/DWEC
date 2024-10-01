@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ejercicio 16</title>
+</head>
+
+<body>
+    <h3>
+        Escribe un programa para comprobar si dos arrays unidimensionales
+        contienen los mismos elementos.
+    </h3>
+    <p id="arrIguales"></p>
+    <script>
+        // Crear un array
+        var arr1 = [10, 10, 2, 2, 2, 3, 5, 6, 9];
+        var arr2 = [10, 10, 1, 1, 2, 3, 5, 6, 9];
+
+        // Comprobar si los dos array son iguales
+        function comprobarArray(arr1, arr2) {
+            if (arr1.length != arr2.length) { // Verificar la misma longitud
+                return false;
+            }
+
+            // Ordenar los dos array
+            arr1.sort;
+            arr2.sort;
+
+            // Comparar cada elemento
+            for (var i = 0; i < arr1.length; i++) {
+                if (arr1[i] != arr2[i]) { // Verificar si cada elemento es igual
+                    return false;
+                }
+            }
+            return true;
+        }
+        if (comprobarArray(arr1, arr2)) {
+            document.getElementById("arrIguales").innerHTML =
+                "Los arrays son iguales";
+        } else {
+            document.getElementById("arrIguales").innerHTML =
+                "Los arrays no son iguales";
+        }
+    </script>
+</body>
+
+</html>
