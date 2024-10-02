@@ -6,7 +6,7 @@ function añadirTarea() {
   if (valor !== "") {
     // Verificar si no está vacío
     console.log("Tarea añadida: " + valor);
-    tareas.push({ texto: valor, completada: false }); // Añadir la tarea al array como objeto
+    tareas.push({ texto: valor, completada: false }); // Añadir la tarea al array 
   }
   mostrarArray();
 }
