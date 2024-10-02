@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ejercicio 36</title>
+  </head>
+  <body>
+    <p>
+      Escribe una función que devuelva true si dos palabras que recibe como
+      parámetros contienen las mismas letras, aunque se encuentren en posiciones
+      distintas.
+    </p>
+
+    <p id="igual"></p>
+    <script>
+        var palabra1 = "hola";
+        var palabra2 = "ohal";
+
+        function coincide(palabra1, palabra2) {
+            // Convierte las palabras en arrays
+            var ordenada1 = palabra1.split('').sort().join('');
+            var ordenada2 = palabra2.split('').sort().join('');
+
+            // Compara las cadenas ordenadas
+            return ordenada1 === ordenada2;
+        }
+
+        // Devolver el resultado por pantalla
+        if (coincide(palabra1, palabra2)) {
+            document.getElementById("igual").innerHTML = "true";
+        } else {
+            document.getElementById("igual").innerHTML = "false";
+        }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ejercicio 27</title>
+  </head>
+  <body>
+    <p>
+      Programa una función que determine si un año que recibe como parámetro es
+      bisiesto.
+    </p>
+
+    <p id="bisiesto"></p>
+
+    <script>
+      var año = 2023;
+
+      //Funcion que devuelve si es bisiesto o no
+      function esBisiesto(año) {
+        if (año % 4 === 0) {
+          return true;
+        }
+      }
+
+      // Devolver el resultado por pantalla
+      if (esBisiesto(año)) {
+        document.getElementById("bisiesto").innerHTML =
+          "El año " + año + " es bisiesto";
+      } else {
+        document.getElementById("bisiesto").innerHTML =
+          "El año " + año + " no es bisiesto";
+      }
+    </script>
+  </body>
+</html>

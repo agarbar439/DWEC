@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ejercicio 23</title>
+    <style>
+      /* Estilos para mostrar los idiomas en bloques horizontales */
+      #info {
+        display: flex;
+        justify-content: center;
+        gap: 100px;
+        padding: 30px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <p>
+      Crea una estructura de datos que te permita llevar el control de un
+      diccionario de varios idiomas. El idioma de referencia será el español y
+      podrá aparecer la traducción de cada palabra hasta en tres idiomas. Añade
+      cinco palabras en español con sus respectivas traducciones en los tres
+      idiomas y muestra todo el contenido de la estructura en pantalla.
+    </p>
+  </body>
+
+  <div id="info"></div>
+
+  <script>
+    const idioma = {
+      Español: {
+        p1: "hola",
+        p2: "Adios",
+        p3: "Gracias",
+        p4: "Playa",
+        p5: "Calle",
+      },
+      Ingles: {
+        p1: "hello",
+        p2: "bye",
+        p3: "Thank you",
+        p4: "Beach",
+        p5: "Street",
+      },
+      Aleman: {
+        p1: "hallo",
+        p2: "tschüss",
+        p3: "Dankeschön",
+        p4: "Strand",
+        p5: "Straße",
+      },
+    };
+
+    var info = document.getElementById("info");
+
+    for (const idm in idioma) {
+      // Crear contenedor para cada palabra
+      var divIdioma = document.createElement("div");
+      //Añadir el nombre
+      var titulo = document.createElement("h3");
+      titulo.textContent = `${idm}`;
+      divIdioma.appendChild(titulo);
+
+      // Añadir la primera palabra
+      var palabra1 = document.createElement("p");
+      palabra1.textContent = ` ${idioma[idm].p1}`;
+      divIdioma.appendChild(palabra1);
+
+      // Añadir la segunda palabra
+      var palabra2 = document.createElement("p");
+      palabra2.textContent = ` ${idioma[idm].p2}`;
+      divIdioma.appendChild(palabra2);
+
+      // Añadir la tercera palabra
+      var palabra3 = document.createElement("p");
+      palabra3.textContent = ` ${idioma[idm].p3}`;
+      divIdioma.appendChild(palabra3);
+
+      // Añadir la cuarta palabra
+      var palabra4 = document.createElement("p");
+      palabra4.textContent = ` ${idioma[idm].p4}`;
+      divIdioma.appendChild(palabra4);
+
+      // Añadir la quinta palabra
+      var palabra5 = document.createElement("p");
+      palabra5.textContent = ` ${idioma[idm].p5}`;
+      divIdioma.appendChild(palabra5);
+
+      // Insertar en el div para mostrar en la pagina
+      info.appendChild(divIdioma);
+    }
+  </script>
+</html>
