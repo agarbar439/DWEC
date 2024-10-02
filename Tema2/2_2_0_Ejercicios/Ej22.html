@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ejercicio 22</title>
+</head>
+
+<body>
+  <p>
+    Durante el desarrollo de una aplicación se ha detectado la necesidad de
+    almacenar la información de geolocalización de varias ciudades. Tienes que
+    crear un mapa cuyas claves sean el nombre de las ciudades y los valores,
+    la longitud y latitud de cada ciudad. Crea la estructura de datos,
+    rellénala con datos de cinco ciudades reales y muestra en pantalla la
+    información que contiene el mapa.
+  </p>
+</body>
+
+<div id="info"></div>
+
+<script>
+
+  const ciudades = {
+    Madrid: { latitud: 40.4165, longitud: -3.70256 },
+    "Nueva York": { latitud: 40.7128, longitud: -74.006 },
+    Tokio: { latitud: 35.6762, longitud: 139.6503 },
+    Sídney: { latitud: -33.8688, longitud: 151.2093 },
+    "Buenos Aires": { latitud: -34.6037, longitud: -58.3816 },
+  };
+
+  // Recorrer el objeto para mostrar la información de cada ciudad
+  var info = document.getElementById("info"); // Guardar en una variable el valor del div
+
+  for (const ciudad in ciudades) {
+    // Crear contenedor para cada ciudad
+    const ciudadDiv = document.createElement("div");
+
+    //Añadir el nombre de la ciudad
+    var titulo = document.createElement("h3");
+    titulo.textContent = `Ciudad: ${ciudad}`;
+    ciudadDiv.appendChild(titulo);
+
+    // Añadir la Latitud
+    var latitudP = document.createElement('p');
+    latitudP.textContent = `Latitud: ${ciudades[ciudad].latitud}`;
+    ciudadDiv.appendChild(latitudP);
+
+    // Añadir la longitud
+    var longitudP = document.createElement("p");
+    longitudP.textContent = `Longitud: ${ciudades[ciudad].longitud}`;
+    ciudadDiv.appendChild(longitudP);
+
+    // Añadir un separador
+    const separador = document.createElement("hr");
+    ciudadDiv.appendChild(separador);
+
+    // Insertar en el div para mostrar en la pagina
+    info.appendChild(ciudadDiv);
+  }
+
+</script>
+
+</html>
