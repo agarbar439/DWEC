@@ -1,26 +1,31 @@
-body{
+body {
     font-family: 'Roboto';
 }
 
-html, body {
+html,
+body {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
+
 /* Estructura general */
 #sec-header {
     width: 100%;
-    background: linear-gradient(to right, #4ade80, #3b82f6); /* Gradiente de fondo */
-    padding: 20px 0 50px 0; /* Aumentamos el padding para añadir espacio arriba y abajo */
+    background: linear-gradient(to right, #4ade80, #3b82f6);
+    /* Gradiente de fondo */
+    padding: 20px 0 50px 0;
+    /* Aumentamos el padding para añadir espacio arriba y abajo */
 
 }
 
-
 /* Estilos para la barra de navegación */
 header {
-    background-color: #1a1a1a; /* Fondo negro para la barra de navegación */
+    background-color: #302c3c;
+    /* Fondo negro para la barra de navegación */
     padding: 10px 0;
-    margin: 0; /* Ajustamos el margen para darle más espacio lateral al negro */
+    margin: 0;
+    /* Ajustamos el margen para darle más espacio lateral al negro */
 }
 
 .topnav {
@@ -31,7 +36,8 @@ header {
 }
 
 .imagen-nav img {
-    height: 50px; /* Ajusta el tamaño según el logo */
+    height: 50px;
+    /* Ajusta el tamaño según el logo */
     margin-left: 60px;
 }
 
@@ -46,8 +52,9 @@ nav a {
     font-size: 16px;
     font-weight: bold;
 }
-  /* Style the links inside the navigation bar */
-  .topnav a {
+
+/* Style the links inside the navigation bar */
+.topnav a {
     margin-right: 15px;
     float: right;
     color: #f2f2f2;
@@ -55,47 +62,140 @@ nav a {
     padding: 14px 16px;
     text-decoration: none;
     font-size: 17px;
-  }
-  
+}
 
-  #nav-color{
+
+#nav-color {
     background-color: red;
-  }
+}
 
-  #mensaje-bienvenida{
+#mensaje-bienvenida {
     text-align: center;
-  }
+    font-size: 25px;
+}
 
-  #cuerpo{
-    margin: 40px;
-  }
+#cuerpo {
+    margin: 20px;
+}
 
-  .texto-medio {
+.texto-superior {
+    margin-left: 14%;
+    margin-right: 16%;
+}
+
+.texto-medio {
     display: flex;
-    justify-content: space-between; /* Espacia los elementos uniformemente */
-    align-items: flex-start; /* Alinea los elementos en la parte superior */
+    justify-content: space-between;
+    /* Espacia los elementos uniformemente */
+    align-items: flex-start;
+    /* Alinea los elementos en la parte superior */
 }
 
-.cuerpo-izq, .cuerpo-medio, .cuerpo-derecha {
+.cuerpo-izq,
+.cuerpo-medio,
+.cuerpo-derecha {
     padding-top: 13px;
-    width: 20%; /* Ajusta el ancho según sea necesario */
+    width: 20%;
+    /* Ajusta el ancho según sea necesario */
 }
 
-.cuerpo-izq{
+.cuerpo-izq {
     margin-left: 14%;
 }
 
-.cuerpo-derecha{
+.cuerpo-derecha {
     margin-right: 14%;
 }
 
-.titulo-fotos{
+.titulo-fotos {
     text-align: center;
     color: blue;
     font-weight: bold;
     padding-right: 40px;
 }
 
-.texto-fotos{
-     text-align : justify;
+.texto-fotos {
+    text-align: justify;
+}
+
+
+/* Contenedor centrado con flexbox */
+.contenedor-boton {
+    display: flex;
+    justify-content: center;
+    /* Centra horizontalmente */
+    align-items: center;
+    /* Centra verticalmente si el contenedor tiene altura definida */
+}
+
+/* Estilos del botón */
+.ver-mas {
+    background-color: #0066FF;
+    /* Color de fondo azul */
+    color: white;
+    /* Color del texto */
+    padding: 10px 20px;
+    /* Espaciado interno del botón */
+    border: none;
+    /* Sin borde */
+    border-radius: 5px;
+    /* Bordes redondeados */
+    font-size: 14px;
+    /* Tamaño de la fuente */
+    font-weight: bold;
+    /* Texto en negrita */
+    cursor: pointer;
+    /* Indicador de cursor al pasar sobre el botón */
+
+}
+
+.image-footer {
+    margin-left: 17%;
+}
+
+/* Estructura del footer */
+#footer-todo {
+    background-color: #302c3c;
+    /* Color de fondo para el footer */
+    padding: 20px;
+    /* Espaciado interno */
+    max-height: 200px;
+    /* Ancho máximo deseado */
+}
+
+.footer-contenido {
+    display: flex;
+    /* Flexbox para organizar en dos bloques */
+    justify-content: space-between;
+    /* Espacio entre el logo y los textos */
+    align-items: center;
+    /* Centra verticalmente los elementos */
+}
+
+.titulo-footer {
+    font-weight: bold;
+    font-size: 16px;
+    color: white;
+}
+
+.texto-footer {
+    color: white;
+    margin-right: 25%;
+}
+
+/* Estilos adicionales */
+footer {
+    text-align: left;
+    margin-top: 20px;
+    margin-left: 20px;
+    margin-bottom: 20px;
+    font-size: 14px;
+    color: white;
+
+}
+
+.linea-footer {
+    border: 0;
+    height: 1px;
+    background-color: blue;
 }
