@@ -12,10 +12,9 @@ var textos = [
 ];
 
 // Funcion para mostrar y esconder texto
-/*function verTexto() {
-   document.getElementById("mas1").textContent = textos[0];
-   document.getElementById("mas2").textContent = textos[1];
-   document.getElementById("mas3").textContent = textos[2];
+/*function verTexto(index) {
+document.getElementById("mas" + (index + 1)).textContent = textos[index];
+
 
    var x = document.getElementById("text1")
    if (x.style.display === "none") {
