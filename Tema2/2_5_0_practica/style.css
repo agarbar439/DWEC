@@ -156,20 +156,14 @@ nav a {
 /* Estructura del footer */
 #footer-todo {
     background-color: #302c3c;
-    /* Color de fondo para el footer */
     padding: 20px;
-    /* Espaciado interno */
     max-height: 200px;
-    /* Ancho máximo deseado */
 }
 
 .footer-contenido {
     display: flex;
-    /* Flexbox para organizar en dos bloques */
     justify-content: space-between;
-    /* Espacio entre el logo y los textos */
     align-items: center;
-    /* Centra verticalmente los elementos */
 }
 
 .titulo-footer {
@@ -182,7 +176,11 @@ nav a {
     color: white;
     margin-right: 25%;
 }
-
+.linea {
+    border: none;
+    height: 15px; /* Ajusta el grosor de la línea */
+    background: linear-gradient(to right, #00FF00, #0000FF); /* Gradiente de verde a azul */
+}
 /* Estilos adicionales */
 footer {
     text-align: left;
@@ -193,9 +191,40 @@ footer {
     color: white;
 
 }
+.contenedor-linea {
+    display: flex;
+    justify-content: center; /* Alinea horizontalmente */
+    align-items: center; /* Alinea verticalmente */
+}
+
+  .linea-difuminada {
+    width: 50px; /* Ajusta el ancho de la línea */
+    height: 3px; /* Ajusta la altura de la línea */
+    background: linear-gradient(to right, transparent, #00FF00, #0000FF, transparent);
+}
 
 .linea-footer {
     border: 0;
     height: 1px;
     background-color: blue;
 }
+
+/* Modo oscuro*/
+.dark-mode {
+    background-color: #121212;
+    color: #ffffff;
+  }
+
+  .botonFondo{
+    background-color: lightskyblue;
+    color: black;
+    padding: 10px 20px;
+    border: none;
+    font-size: 14px;
+    cursor: pointer;
+  }
+
+
+  .botonFondo:hover{
+    background-color: lightgoldenrodyellow;
+  }
