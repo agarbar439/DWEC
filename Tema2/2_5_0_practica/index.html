@@ -1,155 +1,150 @@
 <!DOCTYPE html>
 <html lang="es">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>2.5.0. Práctica entregable</title>
-    <link rel="stylesheet" href="style.css" />
-    <script src="script.js"></script>
-    <!--Link hacia la fuente Roboto-->
-    <link
-      href="https://fonts.googleapis.com/css?family=Roboto"
-      rel="stylesheet"
-    />
-  </head>
-  <body id="todo-cuerpo">
-    <section id="sec-header">
-      <header>
-        <div class="topnav">
-          <div class="imagen-nav">
-            <img class="img-nav" src="./images/logo.png" alt="logo" />
-          </div>
-          <nav>
-            <a href="#inicio">Inicio</a>
-            <a href="#conocer">Conózcanos</a>
-            <a href="#servicios">Servicios</a>
-            <a href="#galeria">Galería</a>
-            <a href="#clientes">Clientes</a>
-            <a href="#blog">Blog</a>
-            <a href="#contacto">Contacto</a>
-          </nav>
-        </div>
-      </header>
-    </section>
-    <section id="cuerpo">
-      <!--Parte del cuerpo superior-->
-      <article class="texto-superior">
-        <button onclick="cambiarColor()" class="botonFondo">
-          Cambiar color
-        </button>
 
-        <h3 id="mensaje-bienvenida">Bienvenidos</h3>
-        <div class="contenedor-linea">
-          <div class="linea-difuminada"></div>
-        </div>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>2.5.0. Práctica entregable</title>
+  <link rel="stylesheet" href="style.css" />
+  <script src="script.js"></script>
+  <!--Link hacia la fuente Roboto-->
+  <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet" />
+</head>
 
-        <p id="texto-bienvenida">
-          Lorem ipsum, dolor sit amet consectetur adipiscing elit. Obcaecati vel
-          recusandae aliquam, deleniti repellendus doloremque omnis corrupti?
-          Officia earum eligendi ducimus, accusantium ut corrupti aliquam cumque
-          ipsum, in possimus natus
-        </p>
-      </article>
-
-      <!--Parte del cuerpo medio-->
-      <article class="texto-medio">
-        <aside class="cuerpo-izq">
-          <div>
-            <img
-              class="imagen-medio"
-              onmouseover="this.width=400;this.height=300;"
-              onmouseout="this.width=327;this.height=266;"
-              width="327"
-              height="266"
-              src="./images/panel-solar.jpg"
-            />
-          </div>
-          <div>
-            <p class="titulo-fotos">Energía fotovóltaica</p>
-            <p class="texto-fotos">
-              Lorem ipsum dolor sit amet consectetue adipsisicing elit.
-              Perferendis dignissimos achitecto incidunt sed. Aliquam suspicit
-              provident exercitaonem ad at est mollitia, saepe quia ipsa ex,
-              iste quam deserut reprehenderit quisquam!
-            </p>
-            <div class="contenedor-boton">
-              <button class="ver-mas">VER MÁS</button>
-            </div>
-          </div>
-        </aside>
-
-        <aside class="cuerpo-medio">
-          <div>
-            <img
-              class="imagen-medio"
-              onmouseover="this.width=400;this.height=300;"
-              onmouseout="this.width=327;this.height=266;"
-              width="327"
-              height="266"
-              src="./images/turbina-eolica.jpg"
-            />
-          </div>
-          <div>
-            <p class="titulo-fotos">Energía eólica</p>
-            <p class="texto-fotos">
-              Lorem ipsum dolor sit amet consectetue adipsisicing elit.
-              Perferendis dignissimos achitecto incidunt sed. Aliquam suspicit
-              provident exercitaonem ad at est mollitia, saepe quia ipsa ex,
-              iste quam deserut reprehenderit quisquam!
-            </p>
-            <div class="contenedor-boton">
-              <button class="ver-mas">VER MÁS</button>
-            </div>
-          </div>
-        </aside>
-        <aside class="cuerpo-derecha">
-          <div>
-            <img
-              class="imagen-medio"
-              onmouseover="this.width=400;this.height=300;"
-              onmouseout="this.width=327;this.height=266;"
-              width="327"
-              height="266"
-              src="./images/eficiencia.jpg"
-            />
-          </div>
-          <div>
-            <p class="titulo-fotos">Eficiencia energética</p>
-            <p class="texto-fotos">
-              Lorem ipsum dolor sit amet consectetue adipsisicing elit.
-              Perferendis dignissimos achitecto incidunt sed. Aliquam suspicit
-              provident exercitaonem ad at est mollitia, saepe quia ipsa ex,
-              iste quam deserut reprehenderit quisquam!
-            </p>
-            <div class="contenedor-boton">
-              <button class="ver-mas" onclick="displayText()">VER MÁS</button>
-            </div>
-          </div>
-        </aside>
-      </article>
-    </section>
-    <!--Pie de pagina-->
-    <div class="linea"></div>
-    <section id="footer-todo">
-      <div class="footer-contenido">
-        <div class="image-footer">
-          <img src="./images/logo.png" alt="Logo" />
+<body id="todo-cuerpo">
+  <section id="sec-header">
+    <header>
+      <div class="topnav">
+        <div class="imagen-nav">
+          <img class="img-nav" src="./images/logo.png" alt="logo" />
         </div>
-        <div class="texto-footer">
-          <p class="titulo-footer">Estamos en:</p>
-          <p>
-            Avda. Juan Carlos I <br />
-            Vélez-Málaga Málaga, Spain<br />
-            Tel +34 333 333 333<br />
-            info@mipagina.com
-          </p>
-        </div>
+        <nav>
+          <a href="#inicio">Inicio</a>
+          <a href="#conocer">Conózcanos</a>
+          <a href="#servicios">Servicios</a>
+          <a href="#galeria">Galería</a>
+          <a href="#clientes">Clientes</a>
+          <a href="#blog">Blog</a>
+          <a href="#contacto">Contacto</a>
+        </nav>
       </div>
-      <hr class="linea-footer" />
+    </header>
+  </section>
+  <section id="cuerpo">
+    <!--Parte del cuerpo superior-->
+    <article class="texto-superior">
+      <button onclick="cambiarColor()" class="botonFondo">
+        Cambiar color
+      </button>
 
-      <footer>
-        <p>Antonio García Barrera</p>
-      </footer>
-    </section>
-  </body>
+      <h3 id="mensaje-bienvenida">Bienvenidos</h3>
+      <div class="contenedor-linea">
+        <div class="linea-difuminada"></div>
+      </div>
+
+      <p id="texto-bienvenida">
+        Lorem ipsum, dolor sit amet consectetur adipiscing elit. Obcaecati vel
+        recusandae aliquam, deleniti repellendus doloremque omnis corrupti?
+        Officia earum eligendi ducimus, accusantium ut corrupti aliquam cumque
+        ipsum, in possimus natus
+      </p>
+    </article>
+
+    <!--Parte del cuerpo medio-->
+    <article class="texto-medio">
+      <aside class="cuerpo-izq">
+        <div>
+          <img class="imagen-medio" onload="" onmouseover="this.width=400;this.height=300;"
+            onmouseout="this.width=327;this.height=266;" width="327" height="266" src="./images/panel-solar.jpg" />
+        </div>
+        <div>
+          <p class="titulo-fotos">Energía fotovóltaica</p>
+          <p class="texto-fotos">
+            Lorem ipsum dolor sit amet consectetue adipsisicing elit.
+            Perferendis dignissimos achitecto incidunt sed. Aliquam suspicit
+            provident exercitaonem ad at est mollitia, saepe quia ipsa ex,
+            iste quam deserut reprehenderit quisquam!
+          </p>
+          <div id="text1">
+            <p id="mas1"></p>
+          </div>
+
+          <div class="contenedor-boton">
+            <button class="ver-mas" onclick="verTexto(0)">VER MÁS</button>
+          </div>
+        </div>
+      </aside>
+
+      <aside class="cuerpo-medio">
+        <div>
+          <img class="imagen-medio" onmouseover="this.width=400;this.height=300;"
+            onmouseout="this.width=327;this.height=266;" width="327" height="266" src="./images/turbina-eolica.jpg" />
+        </div>
+        <div>
+          <p class="titulo-fotos">Energía eólica</p>
+          <p class="texto-fotos">
+            Lorem ipsum dolor sit amet consectetue adipsisicing elit.
+            Perferendis dignissimos achitecto incidunt sed. Aliquam suspicit
+            provident exercitaonem ad at est mollitia, saepe quia ipsa ex,
+            iste quam deserut reprehenderit quisquam!
+          </p>
+          <div id="text2">
+
+          <p id="mas2"></p>
+          </div>
+          <div class="contenedor-boton">
+            <button class="ver-mas" onclick="verTexto(1)">VER MÁS</button>
+          </div>
+        </div>
+      </aside>
+      <aside class="cuerpo-derecha">
+        <div>
+          <img class="imagen-medio" onmouseover="this.width=400;this.height=300;"
+            onmouseout="this.width=327;this.height=266;" width="327" height="266" src="./images/eficiencia.jpg" />
+        </div>
+        <div>
+          <p class="titulo-fotos">Eficiencia energética</p>
+          <p class="texto-fotos">
+            Lorem ipsum dolor sit amet consectetue adipsisicing elit.
+            Perferendis dignissimos achitecto incidunt sed. Aliquam suspicit
+            provident exercitaonem ad at est mollitia, saepe quia ipsa ex,
+            iste quam deserut reprehenderit quisquam!
+          </p>
+          <div id="text3">
+
+          <p id="mas3"></p>
+          </div>
+          <div class="contenedor-boton">
+            <button class="ver-mas" onclick="verTexto(2)">VER MÁS</button>
+          </div>
+
+        </div>
+      </aside>
+    </article>
+  </section>
+  <!--Pie de pagina-->
+  <div class="linea"></div>
+  <section id="footer-todo">
+    <div class="footer-contenido">
+      <div class="image-footer">
+        <img src="./images/logo.png" alt="Logo" />
+      </div>
+      <div class="texto-footer">
+        <p class="titulo-footer">Estamos en:</p>
+        <p>
+          Avda. Juan Carlos I <br />
+          Vélez-Málaga Málaga, Spain<br />
+          Tel +34 333 333 333<br />
+          info@mipagina.com
+        </p>
+      </div>
+    </div>
+    <hr class="linea-footer" />
+
+    <footer>
+      <p>Antonio García Barrera</p>
+    </footer>
+  </section>
+</body>
+
 </html>
