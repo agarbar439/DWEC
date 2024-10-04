@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ejercicio 38</title>
+  </head>
+  <body>
+    <p id="imprimir"></p>
+
+    <script>
+      function fibonacci(n) {
+        if (n === 0) return 0;
+        if (n === 1 || n === 2) return 1;
+
+        return fibonacci(n - 1) + fibonacci(n - 2) + fibonacci(n - 3);
+      }
+
+      function mostrar(cantidad) {
+        // Array vacio
+        var arr = [];
+
+        for (var i = 0; i < cantidad; i++) {
+          // Agregar cada número al array
+          arr.push(fibonacci(i));
+        }
+
+        // Mostrar en pantalla
+        document.getElementById("imprimir").innerHTML = arr.join(", ");
+      }
+
+      // Resultado
+      mostrar(10);
+    </script>
+  </body>
+</html>
