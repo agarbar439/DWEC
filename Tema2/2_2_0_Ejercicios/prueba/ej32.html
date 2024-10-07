@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Comparar Arrays 4x4</title>
+    <script>
+        // Función que compara dos arrays 4x4 y genera un tercer array con ceros excepto en las posiciones donde son iguales
+        function compararMatrices(matriz1, matriz2) {
+            let resultado = [];
+
+            // Recorremos las matrices
+            for (let i = 0; i < matriz1.length; i++) {
+                resultado[i] = []; // Inicializamos la fila i del array resultado
+                for (let j = 0; j < matriz1[i].length; j++) {
+                    // Si los valores en la misma posición son iguales, mantenemos el valor, si no, ponemos 0
+                    if (matriz1[i][j] === matriz2[i][j]) {
+                        resultado[i][j] = matriz1[i][j];
+                    } else {
+                        resultado[i][j] = 0;
+                    }
+                }
+            }
+
+            return resultado;
+        }
+
+        // Función para mostrar la matriz en el documento HTML
+        function mostrarMatriz(matriz, idElemento) {
+            let resultado = '';
+            for (let i = 0; i < matriz.length; i++) {
+                resultado += matriz[i].join(' ') + '<br>';
+            }
+            document.getElementById(idElemento).innerHTML = resultado;
+        }
+
+        // Función que maneja el proceso
+        function manejarClick() {
+            let matriz1 = [
+                [1, 2, 3, 4],
+                [5, 6, 7, 8],
+                [9, 10, 11, 12],
+                [13, 14, 15, 16]
+            ];
+
+            let matriz2 = [
+                [1, 0, 3, 0],
+                [0, 6, 0, 8],
+                [9, 0, 11, 0],
+                [0, 14, 0, 16]
+            ];
+
+            // Comparamos las matrices
+            const matrizResultado = compararMatrices(matriz1, matriz2);
+
+            // Mostramos las matrices
+            mostrarMatriz(matriz1, 'matriz1');
+            mostrarMatriz(matriz2, 'matriz2');
+            mostrarMatriz(matrizResultado, 'resultado');
+        }
+    </script>
+</head>
+<body>
+    <h1>Comparar Arrays 4x4</h1>
+    <button onclick="manejarClick()">Comparar Matrices</button>
+    <h3>Matriz 1:</h3>
+    <div id="matriz1"></div>
+    <h3>Matriz 2:</h3>
+    <div id="matriz2"></div>
+    <h3>Resultado:</h3>
+    <div id="resultado"></div>
+</body>
+</html>

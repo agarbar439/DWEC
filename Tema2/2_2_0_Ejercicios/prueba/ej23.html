@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tres en Raya</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        #tablero {
+            display: grid;
+            grid-template-columns: repeat(3, 50px);
+            grid-gap: 5px;
+            margin-bottom: 20px;
+        }
+        .casilla {
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid #000;
+            font-size: 24px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Tres en Raya</h1>
+    <div id="tablero"></div>
+    <div id="resultado"></div>
+
+    <script>
+        // Crear el tablero de tres en raya
+        const tablero = [
+            ['X', 'O', 'X'],
+            ['O', 'X', 'O'],
+            ['O', 'X', 'X']
+        ];
+
+        // Función para comprobar si hay un ganador
+        function comprobarGanador(tablero) {
+            const combinacionesGanadoras = [
+                // Filas
+                [tablero[0][0], tablero[0][1], tablero[0][2]],
+                [tablero[1][0], tablero[1][1], tablero[1][2]],
+                [tablero[2][0], tablero[2][1], tablero[2][2]],
+                // Columnas
+                [tablero[0][0], tablero[1][0], tablero[2][0]],
+                [tablero[0][1], tablero[1][1], tablero[2][1]],
+                [tablero[0][2], tablero[1][2], tablero[2][2]],
+                // Diagonales
+                [tablero[0][0], tablero[1][1], tablero[2][2]],
+                [tablero[0][2], tablero[1][1], tablero[2][0]]
+            ];
+
+            for (const combinacion of combinacionesGanadoras) {
+                if (combinacion[0] && combinacion[0] === combinacion[1] && combinacion[1] === combinacion[2]) {
+                    return combinacion[0]; // Retorna el ganador ('X' o 'O')
+                }
+            }
+            return null; // No hay ganador
+        }
+
+        // Mostrar el tablero en la interfaz
+        const tableroDiv = document.getElementById('tablero');
+        tablero.forEach(fila => {
+            fila.forEach(casilla => {
+                const casillaDiv = document.createElement('div');
+                casillaDiv.classList.add('casilla');
+                casillaDiv.innerText = casilla;
+                tableroDiv.appendChild(casillaDiv);
+            });
+        });
+
+        // Comprobar el ganador y mostrar el resultado
+        const ganador = comprobarGanador(tablero);
+        const resultadoDiv = document.getElementById('resultado');
+        resultadoDiv.innerText = ganador ? `El ganador es: ${ganador}` : 'No hay ganador';
+    </script>
+</body>
+</html>

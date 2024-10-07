@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Verificar Múltiplo de 10</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Verificador de Múltiplo de 10</h1>
+    <label for="numero">Introduce un número:</label>
+    <input type="number" id="numero" placeholder="Número">
+    <button id="verificar">Verificar</button>
+    <div id="resultado"></div>
+
+    <script>
+        // Función para verificar si un número es múltiplo de 10
+        function esMultiploDeDiez(numero) {
+            return numero % 10 === 0;
+        }
+
+        // Evento para el botón de verificación
+        document.getElementById('verificar').addEventListener('click', () => {
+            const numero = parseInt(document.getElementById('numero').value);
+            if (!isNaN(numero)) {
+                const resultado = esMultiploDeDiez(numero);
+                document.getElementById('resultado').innerText = resultado 
+                    ? `${numero} es múltiplo de 10.`
+                    : `${numero} no es múltiplo de 10.`;
+            } else {
+                document.getElementById('resultado').innerText = 'Por favor, introduce un número válido.';
+            }
+        });
+    </script>
+</body>
+</html>

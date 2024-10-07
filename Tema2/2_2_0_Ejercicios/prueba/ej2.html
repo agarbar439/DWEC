@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora de Ecuaciones de Segundo Grado</title>
+</head>
+<body>
+    <h1>Calculadora de Ecuaciones de Segundo Grado</h1>
+    <form id="ecuacionForm">
+        <label for="a">a:</label>
+        <input type="number" id="a" name="a" required>
+        <br>
+        <label for="b">b:</label>
+        <input type="number" id="b" name="b" required>
+        <br>
+        <label for="c">c:</label>
+        <input type="number" id="c" name="c" required>
+        <br>
+        <button type="button" onclick="calcularSoluciones()">Calcular</button>
+    </form>
+    <p id="resultado"></p>
+
+    <script>
+        function calcularSoluciones() {
+            // Obtiene los valores de los coeficientes
+            let a = parseFloat(document.getElementById('a').value);
+            let b = parseFloat(document.getElementById('b').value);
+            let c = parseFloat(document.getElementById('c').value);
+
+            // Calcula el discriminante
+            let discriminante = b * b - 4 * a * c;
+            let resultado;
+
+            // Verifica si el discriminante es negativo, cero o positivo
+            if (discriminante < 0) {
+                resultado = "No hay soluciones reales";
+            } else if (discriminante === 0) {
+                let x = -b / (2 * a);
+                resultado = `Hay una solución: x = ${x}`;
+            } else {
+                let x1 = (-b + Math.sqrt(discriminante)) / (2 * a);
+                let x2 = (-b - Math.sqrt(discriminante)) / (2 * a);
+                resultado = `Hay dos soluciones: x1 = ${x1}, x2 = ${x2}`;
+            }
+
+            // Muestra el resultado en el párrafo
+            document.getElementById('resultado').innerText = resultado;
+        }
+    </script>
+</body>
+</html>

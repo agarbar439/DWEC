@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ejercicio 40</title>
+  <link rel="stylesheet" href="style.css" />
+  <script src="script.js"></script>
+</head>
+
+<body>
+  <h2>Simulación de Bingo</h3>
+    <script>
+
+      // Función para generar números aleatorios entre 1 y 90
+      function numAleatorio() {
+        var arr = []; // Array para almacenar los números aleatorios
+
+        // Generamos 20 números aleatorios
+        for (var i = 1; i <= 20; i++) {
+          var num = Math.floor(Math.random() * 90) + 1; // Número entre 1 y 90
+          arr.push(num);
+        }
+        return arr;
+      }
+
+      function genera_tablas() {
+        // Obtener la referencia del elemento body
+        var body = document.getElementsByTagName("body")[0];
+
+        for (var z = 1; z <= 5; z++) {
+          // Crea un elemento <table> y un elemento <tbody> para cada tabla
+          var tabla = document.createElement("table");
+          var tblBody = document.createElement("tbody");
+          var tituloCarton = document.createElement("h3");
+          tituloCarton.textContent = "Carton " + z;
+          document.body.appendChild(tituloCarton);
+
+          // Crea las celdas
+          for (var i = 0; i < 4; i++) {
+            // Crea las hileras de la tabla
+            var hilera = document.createElement("tr");
+
+            for (var j = 0; j < 8; j++) {
+              // Crea un elemento <td> y un nodo de texto, haz que el nodo de
+              // texto sea el contenido de <td>, ubica el elemento <td> al final
+              // de la hilera de la tabla
+              var celda = document.createElement("td");
+              var textoCelda = document.createTextNode(
+                "2"
+              );
+              celda.appendChild(textoCelda);
+              hilera.appendChild(celda);
+            }
+
+            // agrega la hilera al final de la tabla (al final del elemento tblbody)
+            tblBody.appendChild(hilera);
+          }
+
+          // posiciona el <tbody> debajo del elemento <table>
+          tabla.appendChild(tblBody);
+          // appends <table> into <body>
+          body.appendChild(tabla);
+          // modifica el atributo "border" de la tabla y lo fija a "2";
+          tabla.setAttribute("border", "1");
+
+          // Agrega un salto de línea después de cada tabla
+          var saltoDeLinea = document.createElement("br");
+          body.appendChild(saltoDeLinea);
+        }
+      }
+      genera_tablas();
+
+      const nCartones = 5;
+
+
+      // Posiciones entre 1 y 8 de las filas
+      function posAleatoria() {
+        for (var i = 1; i <= 8; i++) {
+          return Math.floor(Math.random() * 8) + 1;
+        }
+      }
+
+      // Crear un array de 4 dimensiones vacío
+      var arr = [
+        [ // 1
+          [ // 2
+            [], // 3
+            [], // Cuarta dimensión vacía
+          ],
+          [[], []],
+        ],
+        [
+          [[], []],
+          [[], []],
+        ],
+      ];
+
+
+    </script>
+</body>
+
+</html>

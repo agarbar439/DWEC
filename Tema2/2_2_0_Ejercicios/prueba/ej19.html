@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Transpuesta de Matriz</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        #resultado {
+            margin-top: 20px;
+            white-space: pre-wrap; /* Mantiene el formato del texto */
+        }
+    </style>
+</head>
+<body>
+    <button id="calcularTranspuesta">Calcular Transpuesta</button>
+    <div id="resultado"></div>
+
+    <script>
+        // Definir la matriz 3x3
+        const matriz = [
+            [1, 2, 3],
+            [4, 5, 6],
+            [7, 8, 9]
+        ];
+
+        // Obtener el botón y el div para mostrar el resultado
+        const boton = document.getElementById('calcularTranspuesta');
+        const resultadoDiv = document.getElementById('resultado');
+
+        // Función para calcular la transpuesta de la matriz
+        function calcularTranspuesta(matriz) {
+            const transpuesta = [];
+            for (let i = 0; i < matriz[0].length; i++) {
+                transpuesta[i] = [];
+                for (let j = 0; j < matriz.length; j++) {
+                    transpuesta[i][j] = matriz[j][i];
+                }
+            }
+            return transpuesta;
+        }
+
+        // Agregar un evento click al botón
+        boton.addEventListener('click', () => {
+            // Calcular la transpuesta
+            const transpuesta = calcularTranspuesta(matriz);
+            // Mostrar el resultado
+            resultadoDiv.innerText = 'Matriz Original:\n' + JSON.stringify(matriz, null, 2) + 
+                                     '\n\nMatriz Transpuesta:\n' + JSON.stringify(transpuesta, null, 2);
+        });
+    </script>
+</body>
+</html>

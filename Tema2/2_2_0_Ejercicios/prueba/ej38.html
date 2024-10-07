@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sucesión de Fibonacci Variada</title>
+    <script>
+        // Función recursiva para calcular la sucesión
+        function sucesionFibonacciVariada(n, resultado = []) {
+            // Casos base
+            if (n === 1) {
+                resultado.push(0); // Primer término
+                return resultado;
+            }
+            if (n === 2) {
+                resultado.push(0, 1); // Primer y segundo términos
+                return resultado;
+            }
+            if (n === 3) {
+                resultado.push(0, 1, 1); // Primer, segundo y tercer términos
+                return resultado;
+            }
+
+            // Si el resultado no tiene los primeros términos, los agregamos
+            if (resultado.length < 3) {
+                sucesionFibonacciVariada(n - 1, resultado);
+            }
+
+            // Agregar el siguiente término, que es la suma de los tres anteriores
+            const nuevoTermino = resultado[resultado.length - 1] + resultado[resultado.length - 2] + resultado[resultado.length - 3];
+            resultado.push(nuevoTermino);
+            
+            return resultado;
+        }
+
+        // Función para mostrar la sucesión en la consola
+        function mostrarSucesion() {
+            const n = 10; // Número de términos que queremos mostrar
+            const sucesion = sucesionFibonacciVariada(n);
+            console.log(`Los primeros ${n} términos de la sucesión son: ${sucesion.join(', ')}`);
+        }
+    </script>
+</head>
+<body>
+
+    <h1>Sucesión de Fibonacci Variada</h1>
+    <button onclick="mostrarSucesion()">Mostrar Sucesión</button>
+
+</body>
+</html>

@@ -1,0 +1,32 @@
+// Este programa demuestra las diferencias entre los operadores a++, a--, ++a y --a
+
+let a = 5;
+let b;
+
+// Operador a++ (post-incremento)
+// Primero se usa el valor de 'a', luego se incrementa
+b = a++; // b = 5, a = 6
+console.log(`Después de b = a++: a = ${a}, b = ${b}`);
+
+// Operador a-- (post-decremento)
+// Primero se usa el valor de 'a', luego se decrementa
+b = a--; // b = 6, a = 5
+console.log(`Después de b = a--: a = ${a}, b = ${b}`);
+
+// Operador ++a (pre-incremento)
+// Primero se incrementa el valor de 'a', luego se usa
+b = ++a; // a = 6, b = 6
+console.log(`Después de b = ++a: a = ${a}, b = ${b}`);
+
+// Operador --a (pre-decremento)
+// Primero se decrementa el valor de 'a', luego se usa
+b = --a; // a = 5, b = 5
+console.log(`Después de b = --a: a = ${a}, b = ${b}`);
+
+/*
+Resumen:
+- a++: Incrementa 'a' después de usar su valor actual.
+- a--: Decrementa 'a' después de usar su valor actual.
+- ++a: Incrementa 'a' antes de usar su valor.
+- --a: Decrementa 'a' antes de usar su valor.
+*/

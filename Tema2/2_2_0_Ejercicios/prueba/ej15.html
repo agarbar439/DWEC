@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Elemento Más Repetido</title>
+</head>
+<body>
+    <h1>Elemento Más Repetido</h1>
+    <button onclick="encontrarMasRepetido()">Generar y Encontrar Más Repetido</button>
+    <p id="resultado"></p>
+
+    <script>
+        function generarArrayAleatorio(tamaño, min, max) {
+            let array = [];
+            for (let i = 0; i < tamaño; i++) {
+                array.push(Math.floor(Math.random() * (max - min + 1)) + min);
+            }
+            return array;
+        }
+
+        function encontrarMasRepetido() {
+            const array = generarArrayAleatorio(20, 1, 100);
+            let contador = {};
+            let maxRepeticiones = 0;
+            let elementoMasRepetido = null;
+
+            array.forEach(num => {
+                contador[num] = (contador[num] || 0) + 1;
+                if (contador[num] > maxRepeticiones) {
+                    maxRepeticiones = contador[num];
+                    elementoMasRepetido = num;
+                }
+            });
+
+            document.getElementById('resultado').innerHTML = `Array: [${array.join(', ')}]<br>Elemento más repetido: ${elementoMasRepetido} (Aparece ${maxRepeticiones} veces)`;
+        }
+    </script>
+</body>
+</html>

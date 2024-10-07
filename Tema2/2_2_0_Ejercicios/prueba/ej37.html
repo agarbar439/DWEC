@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Filtrar Caracteres No Alfabéticos</title>
+    <script>
+        // Función que filtra cadenas que no están en el alfabeto español
+        function filtrarNoAlfabetoEspañol(array) {
+            const regex = /^[a-zA-ZñÑ]+$/; // Expresión regular para letras del alfabeto español
+
+            return array.filter(cadena => {
+                // Comprobar cada carácter en la cadena
+                return [...cadena].every(caracter => regex.test(caracter));
+            });
+        }
+
+        // Función para mostrar el resultado en la interfaz
+        function mostrarResultado() {
+            // Array de prueba
+            const palabras = ["casa", "niño", "fruta$", "pájaro", "música&", "taco", "café", "23", "ñandú"];
+
+            // Filtrar las palabras que no tienen caracteres del alfabeto español
+            const resultado = filtrarNoAlfabetoEspañol(palabras);
+
+            // Mostrar el resultado
+            document.getElementById("resultado").innerHTML = `
+                Palabras que solo contienen caracteres del alfabeto español: ${resultado.join(', ')}
+            `;
+        }
+    </script>
+</head>
+<body>
+
+    <h1>Filtrar Palabras</h1>
+    <button onclick="mostrarResultado()">Filtrar Palabras</button>
+
+    <h2>Resultado:</h2>
+    <div id="resultado"></div>
+
+</body>
+</html>

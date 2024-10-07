@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mostrar Array</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        #resultado {
+            margin-top: 20px;
+            white-space: pre-wrap; /* Mantiene el formato del texto */
+        }
+    </style>
+</head>
+<body>
+    <button id="mostrarArray">Mostrar Array</button>
+    <div id="resultado"></div>
+
+    <script>
+        // Definir el array
+        const array = [[21, 2, 3, 4], [45, 32, 22, 9], [0, 66, 7, 4], [-3, 32, 11, 90], [59, -2, -63, 15]];
+
+        // Obtener el botón y el div para mostrar el resultado
+        const boton = document.getElementById('mostrarArray');
+        const resultadoDiv = document.getElementById('resultado');
+
+        // Agregar un evento click al botón
+        boton.addEventListener('click', () => {
+            // Convertir el array a una cadena de texto y mostrarlo
+            resultadoDiv.innerText = JSON.stringify(array, null, 2); // Agregar sangrías para mejor visualización
+        });
+    </script>
+</body>
+</html>

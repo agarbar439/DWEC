@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Detección de Elementos Repetidos</title>
+</head>
+<body>
+    <h1>Detección de Elementos Repetidos</h1>
+    <button onclick="detectarRepetidos()">Generar y Detectar Repetidos</button>
+    <p id="resultado"></p>
+
+    <script>
+        function generarArrayAleatorio(tamaño, min, max) {
+            let array = [];
+            for (let i = 0; i < tamaño; i++) {
+                array.push(Math.floor(Math.random() * (max - min + 1)) + min);
+            }
+            return array;
+        }
+
+        function detectarRepetidos() {
+            const array = generarArrayAleatorio(20, 1, 100);
+            let repetidos = {};
+            let resultado = '';
+
+            array.forEach((num, index) => {
+                if (!repetidos[num]) {
+                    repetidos[num] = [];
+                }
+                repetidos[num].push(index);
+            });
+
+            for (let num in repetidos) {
+                if (repetidos[num].length > 1) {
+                    resultado += `Número ${num} repetido en posiciones: ${repetidos[num].join(', ')}<br>`;
+                }
+            }
+
+            if (resultado === '') {
+                resultado = 'No hay elementos repetidos.';
+            }
+
+            document.getElementById('resultado').innerHTML = resultado;
+        }
+    </script>
+</body>
+</html>

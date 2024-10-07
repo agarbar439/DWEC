@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tabla de Multiplicar</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Tabla de Multiplicar</h1>
+    <label for="numero">Introduce un número:</label>
+    <input type="number" id="numero" placeholder="Número">
+    <button id="mostrarTabla">Mostrar Tabla</button>
+    <div id="resultado"></div>
+
+    <script>
+        // Función para mostrar la tabla de multiplicar
+        function mostrarTablaDeMultiplicar(numero) {
+            let tabla = '';
+            for (let i = 1; i <= 10; i++) {
+                tabla += `${numero} x ${i} = ${numero * i}\n`;
+            }
+            return tabla;
+        }
+
+        // Evento para el botón de mostrar tabla
+        document.getElementById('mostrarTabla').addEventListener('click', () => {
+            const numero = parseInt(document.getElementById('numero').value);
+            if (!isNaN(numero)) {
+                const resultado = mostrarTablaDeMultiplicar(numero);
+                document.getElementById('resultado').innerText = resultado;
+            } else {
+                document.getElementById('resultado').innerText = 'Por favor, introduce un número válido.';
+            }
+        });
+    </script>
+</body>
+</html>

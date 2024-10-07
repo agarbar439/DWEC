@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestión de Seguidores</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        #resultado {
+            margin-top: 20px;
+            white-space: pre-wrap; /* Mantiene el formato del texto */
+        }
+    </style>
+</head>
+<body>
+    <button id="gestionarSeguidores">Gestionar Seguidores</button>
+    <div id="resultado"></div>
+
+    <script>
+        // Crear un conjunto vacío para los seguidores
+        const Followers = new Set();
+
+        // Añadir cinco seguidores
+        Followers.add('Alice');
+        Followers.add('Bob');
+        Followers.add('Charlie');
+        Followers.add('David');
+        Followers.add('Eva');
+
+        // Eliminar dos de ellos
+        Followers.delete('Bob');
+        Followers.delete('Charlie');
+
+        // Añadir otros siete seguidores
+        Followers.add('Frank');
+        Followers.add('Grace');
+        Followers.add('Heidi');
+        Followers.add('Ivan');
+        Followers.add('Judy');
+        Followers.add('Mallory');
+        Followers.add('Niaj');
+
+        // Obtener el número de seguidores y los nombres
+        const numeroDeSeguidores = Followers.size;
+        const listaDeSeguidores = Array.from(Followers).join(', ');
+
+        // Mostrar los resultados
+        const resultadoDiv = document.getElementById('resultado');
+        resultadoDiv.innerText = `Número de seguidores: ${numeroDeSeguidores}\nNombres: ${listaDeSeguidores}`;
+    </script>
+</body>
+</html>

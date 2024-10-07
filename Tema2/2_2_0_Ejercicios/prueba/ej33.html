@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ordenar Números</title>
+    <script>
+        // Función que genera un array con 10 números aleatorios entre 1 y 100
+        function generarArray() {
+            let array = [];
+            for (let i = 0; i < 10; i++) {
+                // Genera un número aleatorio entre 1 y 100
+                let numeroAleatorio = Math.floor(Math.random() * 100) + 1;
+                array.push(numeroAleatorio);
+            }
+            return array;
+        }
+
+        // Función para ordenar el array: primero los que terminan en 0
+        function ordenarArray(array) {
+            // Separar los números que terminan en 0
+            let terminanEnCero = array.filter(num => num % 10 === 0);
+            // Números que no terminan en 0
+            let noTerminanEnCero = array.filter(num => num % 10 !== 0);
+            
+            // Combinar ambos arrays, poniendo primero los que terminan en 0
+            return [...terminanEnCero, ...noTerminanEnCero];
+        }
+
+        // Mostrar el array en el documento HTML
+        function mostrarArray(array, idElemento) {
+            document.getElementById(idElemento).innerHTML = array.join(', ');
+        }
+
+        // Función principal que genera, ordena y muestra los arrays
+        function manejarClick() {
+            // Genera el array con números aleatorios
+            let array = generarArray();
+            
+            // Muestra el array original
+            mostrarArray(array, 'arrayOriginal');
+
+            // Ordena el array
+            let arrayOrdenado = ordenarArray(array);
+
+            // Muestra el array ordenado
+            mostrarArray(arrayOrdenado, 'arrayOrdenado');
+        }
+    </script>
+</head>
+<body>
+    <h1>Ordenar Números Aleatorios</h1>
+    <button onclick="manejarClick()">Generar y Ordenar Array</button>
+
+    <h3>Array Original:</h3>
+    <div id="arrayOriginal"></div>
+
+    <h3>Array Ordenado (Terminan en 0 primero):</h3>
+    <div id="arrayOrdenado"></div>
+</body>
+</html>

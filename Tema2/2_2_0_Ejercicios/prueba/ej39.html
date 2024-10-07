@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lanzar Dados</title>
+    <script>
+        // Función que lanza dos dados y devuelve el lanzamiento ganador
+        function lanzarDados(numeroDeLanzamientos) {
+            let maxPuntuacion = 0;
+            let mejorLanzamiento = [];
+
+            for (let i = 0; i < numeroDeLanzamientos; i++) {
+                // Lanzar dos dados
+                const dado1 = Math.floor(Math.random() * 6) + 1;
+                const dado2 = Math.floor(Math.random() * 6) + 1;
+
+                // Calcular la suma de los dados
+                const suma = dado1 + dado2;
+
+                // Comparar con la puntuación máxima
+                if (suma > maxPuntuacion) {
+                    maxPuntuacion = suma;
+                    mejorLanzamiento = [dado1, dado2]; // Guardar el lanzamiento
+                }
+            }
+
+            return { mejorLanzamiento, maxPuntuacion };
+        }
+
+        // Función para mostrar el resultado en la interfaz
+        function mostrarResultado() {
+            const numeroDeLanzamientos = parseInt(document.getElementById("numeroLanzamientos").value);
+            const resultado = lanzarDados(numeroDeLanzamientos);
+
+            document.getElementById("resultado").innerHTML = `
+                Mejor lanzamiento: ${resultado.mejorLanzamiento[0]} y ${resultado.mejorLanzamiento[1]} <br>
+                Puntuación máxima: ${resultado.maxPuntuacion}
+            `;
+        }
+    </script>
+</head>
+<body>
+
+    <h1>Lanzar Dados</h1>
+    <label for="numeroLanzamientos">Número de lanzamientos:</label>
+    <input type="number" id="numeroLanzamientos" min="1" required>
+    <button onclick="mostrarResultado()">Lanzar</button>
+
+    <h2>Resultado:</h2>
+    <div id="resultado"></div>
+
+</body>
+</html>

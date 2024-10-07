@@ -1,0 +1,20 @@
+function esPrimo(numero) {
+    // Un número menor o igual a 1 no es primo
+    if (numero <= 1) {
+        return false;
+    }
+
+    // Verificar si es divisible por algún número entre 2 y la raíz cuadrada del número
+    for (let i = 2; i <= Math.sqrt(numero); i++) {
+        if (numero % i === 0) {
+            return false; // Si es divisible por otro número, no es primo
+        }
+    }
+
+    // Si no es divisible por ningún número, es primo
+    return true;
+}
+
+// Ejemplo de uso
+console.log(esPrimo(7));  // true
+console.log(esPrimo(10)); // false
