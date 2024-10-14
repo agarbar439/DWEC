@@ -23,6 +23,11 @@
             justify-content: center;
             border: 1px solid #000;
             font-size: 24px;
+            cursor: pointer;
+        }
+        .casilla.disabled {
+            cursor: not-allowed;
+            background-color: #f0f0f0;
         }
     </style>
 </head>
@@ -32,12 +37,15 @@
     <div id="resultado"></div>
 
     <script>
-        // Crear el tablero de tres en raya
-        const tablero = [
-            ['X', 'O', 'X'],
-            ['O', 'X', 'O'],
-            ['O', 'X', 'X']
+        // Crear el tablero de tres en raya vacío
+        let tablero = [
+            ['', '', ''],
+            ['', '', ''],
+            ['', '', '']
         ];
+
+        let turno = 'X'; // Inicia con el jugador X
+        let juegoTerminado = false;
 
         // Función para comprobar si hay un ganador
         function comprobarGanador(tablero) {
@@ -63,21 +71,58 @@
             return null; // No hay ganador
         }
 
-        // Mostrar el tablero en la interfaz
-        const tableroDiv = document.getElementById('tablero');
-        tablero.forEach(fila => {
-            fila.forEach(casilla => {
-                const casillaDiv = document.createElement('div');
-                casillaDiv.classList.add('casilla');
-                casillaDiv.innerText = casilla;
-                tableroDiv.appendChild(casillaDiv);
-            });
-        });
+        // Función para manejar el clic en una casilla
+        function manejarClic(event, fila, columna) {
+            if (juegoTerminado || tablero[fila][columna] !== '') return;
 
-        // Comprobar el ganador y mostrar el resultado
-        const ganador = comprobarGanador(tablero);
-        const resultadoDiv = document.getElementById('resultado');
-        resultadoDiv.innerText = ganador ? `El ganador es: ${ganador}` : 'No hay ganador';
+            tablero[fila][columna] = turno; // Actualizar el tablero
+            event.target.innerText = turno; // Mostrar el turno en la casilla
+
+            // Comprobar si hay ganador
+            const ganador = comprobarGanador(tablero);
+            const resultadoDiv = document.getElementById('resultado');
+
+            if (ganador) {
+                resultadoDiv.innerText = `El ganador es: ${ganador}`;
+                juegoTerminado = true;
+                desactivarTablero();
+            } else if (tableroPlano().every(casilla => casilla !== '')) {
+                resultadoDiv.innerText = 'Es un empate';
+                juegoTerminado = true;
+            } else {
+                turno = turno === 'X' ? 'O' : 'X'; // Cambiar de turno
+            }
+        }
+
+        // Función para desactivar el tablero (cuando hay ganador o empate)
+        function desactivarTablero() {
+            const casillas = document.querySelectorAll('.casilla');
+            casillas.forEach(casilla => casilla.classList.add('disabled'));
+        }
+
+        // Función para crear el tablero visualmente
+        function crearTablero() {
+            const tableroDiv = document.getElementById('tablero');
+            tableroDiv.innerHTML = ''; // Limpiar tablero
+
+            tablero.forEach((fila, i) => {
+                fila.forEach((casilla, j) => {
+                    const casillaDiv = document.createElement('div');
+                    casillaDiv.classList.add('casilla');
+                    casillaDiv.innerText = casilla;
+                    casillaDiv.addEventListener('click', (event) => manejarClic(event, i, j));
+                    tableroDiv.appendChild(casillaDiv);
+                });
+            });
+        }
+
+        // Función para aplanar el tablero (para comprobar empate)
+        function tableroPlano() {
+            return tablero.flat();
+        }
+
+        // Inicializar el tablero
+        crearTablero();
     </script>
 </body>
 </html>
