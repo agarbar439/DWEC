@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ejercicio 8</title>
+  </head>
+  <body>
+    <button type="button" onclick="quitarC()">Apartado A</button>
+    <p id="apartadoA"></p>
+
+    <button type="button" onclick="ejB()">Apartado B</button>
+    <p id="apartadoB"></p>
+
+    <button type="button" onclick="ejC()">Apartado C</button>
+    <p id="apartadoC"></p>
+    <script>
+      var perrillos = ["Rocket", "Flash", "Bella", "Slugger"];
+      console.log(perrillos.toString()); // Convierte el array a un string separado por ,
+
+      // Apartado a quitar palabras que contengan C
+      function quitarC() {
+        var a = document.getElementById("apartadoA");
+        // Recorrer el array
+        for (var i = 0; i < perrillos.length; i++) {
+          //Pasar a minuscula y comprobar si incluye la letra
+          if (perrillos[i].toLowerCase().includes("c")) {
+            // Remover la posicion
+            perrillos.splice(i, 1);
+          }
+        }
+        console.log(perrillos.toString());
+        a.innerHTML = perrillos.toString();
+      }
+
+      var ciudades =
+        "Manchester, London, Liverpool, Birmingham, Leeds, Carlisle";
+
+      // Juntar los dos arrays
+      function ejB() {
+        var b = document.getElementById("apartadoB");
+        //Concatenar los dos array
+        perrillos = perrillos.concat(ciudades);
+        b.innerText = perrillos.toString();
+      }
+
+      // Comprobar si funciona unshift, SI funciona
+      function ejC() {
+        var c = document.getElementById("apartadoC");
+
+        perrillos.unshift("Estepona");
+        c.innerText = perrillos.toString();
+      }
+      //perrillos = ciudades.split(","); // A la variable perrillos le asigna
+      //console.log(perrillos.toString());
+    </script>
+  </body>
+</html>
