@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 1</title>
+</head>
+
+<body>
+    <button class="button" onclick="opciones()">Click</button>
+    <p id="mensaje"> </p>
+
+    <script>
+
+        //Funcion para generar un numero aleatorio entre 0 y 1
+        function getRandom() {
+            return Math.random();
+        }
+
+        function opciones() {
+            let mensajeP = document.getElementById("mensaje");
+
+            // Almacenar un numero entre 0 y 1
+            let numeroRandom = getRandom();
+            console.log(numeroRandom);
+
+            // Almacenar la fecha y hora actual
+            let fecha = new Date();
+
+            // Extraer la hora actual
+            let hora = fecha.getHours();
+            console.log(hora);
+
+            // Si el numero random es menor que 0.5
+            if (numeroRandom < 0.5) {
+                mensajeP.innerHTML = "MyfpSchool";
+            } else if (hora < 15) { // Si son menos de las 15:00 
+                mensajeP.innerHTML = "Buenos dias";
+            } else if (hora >= 15) { // Si son mas de las 15:00 
+                mensajeP.innerHTML = "Buenas tardes";
+
+            }
+        }
+    </script>
+</body>
+
+</html>

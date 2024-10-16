@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 2</title>
+</head>
+<body>
+    
+    <script>
+        // Crea un constructor
+        function Coche(modelo, color, kms, combustible){
+            this.modelo = modelo;
+            this.color = color;
+            this.kms = kms;
+            this.combustible = combustible;
+        }
+
+        // Añade datos alconstructor
+        var elmio = new Coche("Mercedes E330", "negro", 120000, "diesel");
+        var eltuyo = new Coche("BMW 318", "blanco", 210000, "gasolina");
+
+        // Instruccion para borrar un atributo
+        delete elmio.kms;
+
+        // Recorrer el constructor
+        for(elemento in elmio){
+           console.log(elemento); // Mostrar por consola
+        }
+
+        // Solucion: Si se puede borrar una atributo con la sentencia
+    </script>
+</body>
+</html>

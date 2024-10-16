@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 3</title>
+</head>
+
+<body>
+    <p>Escribe una frase</p>
+    <input type="text" id="frase" placeholder="Escribe la frase">
+    <br>
+    <p>Escribe una palabra</p>
+    <input type="text" id="palabra" placeholder="Escribe la palabra a buscar">
+    <br><br>
+    <button type="submit" onclick="calcularPosicion()">Click</button>
+
+    <p id="mostrar"></p>
+
+
+    <script>
+        // Funcion para calcular la ultima posicion de una palabra
+        function calcularPosicion() {
+            let frase = document.getElementById("frase").value; // Recoger el valor del input con la frase
+            let palabra = document.getElementById("palabra").value; // Recoger el valor del input con la palabra
+
+            let mostrarP = document.getElementById("mostrar"); // Recoger el id de la etiqueta "p"
+
+            // Guardar la ultima posicion de una palabra/letra
+            let posicion = frase.lastIndexOf(palabra);
+
+            // Mostrar elmensaje de la ultima posicion
+            mostrarP.innerText = "La ultima posicion de la palabra " + palabra + " es: " + posicion;
+
+        }
+    </script>
+</body>
+
+</html>
