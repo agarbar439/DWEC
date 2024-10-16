@@ -1,0 +1,29 @@
+<html>
+<body>
+<ul>
+</ul>
+
+<script>
+var list = document.querySelector('ul');
+list.innerHTML = "";
+var saludos= ['¡Feliz cumpleaños!', 'Feliz navidades a todos', 'Te deseo una feliz navidad', 'En Navidades nos vamos de fiesta' ,
+'Pasa un buen fin de semana' ];
+
+for (var i = 0; i < saludos.length; i++) {
+   var input= saludos[i];
+   // Pasar a minusculas
+   if (saludos[i].toLowerCase().indexOf('navidad') !== - 1 ) {
+      var result = input;
+      console.log(result);
+      var listitem = document.createElement('li');
+      listitem.textContent = result;
+      list.appendChild(listitem);
+   }
+}
+
+/*El problema que ocurria esque indexOf es case sensitive por lo que
+al comparar, solo se mostraba el que tenia la N mayuscula.
+Para ello el array se ha convertido a minuscula.*/
+</script>
+</body>
+</html>
