@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 1</title>
+</head>
+
+<body>
+    <button type="button" onclick="comenzar()">Comenzar Saludos</button>
+    <button type="button" onclick="parar()">Parar Saludos</button>
+
+
+    <script>
+        //Variable donde se almacenara la instruccion del interval
+        var intervalo;
+
+        // Funcion para mostrar un alert cada 5 seg
+        function comenzar() {
+            intervalo = setInterval(() => {
+                alert("Hola");
+            }, 5000);
+        }
+
+        //Funcion para limpiar elintervalo
+        function parar() {
+            clearInterval(intervalo);
+        }
+    </script>
+</body>
+
+</html>

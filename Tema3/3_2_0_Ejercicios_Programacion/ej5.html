@@ -12,7 +12,7 @@ var saludos= ['¡Feliz cumpleaños!', 'Feliz navidades a todos', 'Te deseo una f
 for (var i = 0; i < saludos.length; i++) {
    var input= saludos[i];
    // Pasar a minusculas
-   if (saludos[i].toLowerCase().indexOf('fiesta') !== - 1 ) {
+   if (saludos[i].toLowerCase().indexOf('fiesta') === - 1 ) {
       var result = input;
       console.log(result);
       var listitem = document.createElement('li');
