@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ejercicio 4</title>
+  </head>
+  <body>
+    <label for="nombre">Nombre:</label>
+    <input type="text" id="nombre" name="nombre" />
+
+    <button type="button" onclick="guardaCookie()">
+      Guardar en LocalStorage
+    </button>
+    <button type="button" onclick="muestraCookie()">
+      Mostrar desde LocalStorage
+    </button>
+    <button type="button" onclick="borrarCookie()">Borrar LocalStorage</button>
+
+    <p id="resultados"></p>
+    <script>
+      //Funcion para guardar la cookie mediante LocalStorage
+      function guardaCookie() {
+        let nombre = document.getElementById("nombre").value; // Recoge el valor del input
+        let etiquetaP = document.getElementById("resultados");
+
+        if (nombre == "") {
+          // Si no se ha escrito nada
+          etiquetaP.innerText = "Esta vacio, escribe un valor válido";
+        } else {
+          localStorage.setItem("nombre", nombre); // Guardar la cookie con la clave nombre
+          etiquetaP.innerText = "Nombre guardado en LocalStorage";
+        }
+      }
+
+      function muestraCookie() {
+        let etiquetaP = document.getElementById("resultados");
+
+        let nombreCookie = localStorage.getItem("nombre"); // Almacenar la cookie en una variable
+        if (!nombreCookie) {
+          // Si no existe cookie, esta vacia
+          etiquetaP.innerText = "La cookie está vacía, no se puede mostrar";
+        } else {
+          etiquetaP.innerText = "Nombre de la cookie: " + nombreCookie; // Mostrar nombre cookie
+        }
+      }
+
+      function borrarCookie() {
+        let etiquetaP = document.getElementById("resultados");
+
+        var nombreCookie = localStorage.getItem("nombre"); // Guardar la cookie para comprobar si existe
+        if (!nombreCookie) {
+          // Si esta vacia
+          etiquetaP.innerText = "La cookie está vacía, no se puede borrar";
+        } else {
+          localStorage.removeItem("nombre"); // Eliminar la cookie
+          etiquetaP.innerText = "Cookie borrada";
+        }
+      }
+    </script>
+  </body>
+</html>

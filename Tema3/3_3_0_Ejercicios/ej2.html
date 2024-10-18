@@ -1,24 +1,82 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Ejercicio 2</title>
-</head>
-<body>
-  <h1>Ejemplos de setTimeout y setInterval</h1> 
-  <button type="button">Ejercicio 1: Temporizador</button>
-  <p id="boton1"></p>
-  <button type="button">Ejercicio 2: Iniciar Reloj</button>
-  <button type="button">Ejercicio 3: Cuenta Regresiva</button>
+  </head>
+  <body>
+    <h1>Ejemplos de setTimeout y setInterval</h1>
+    <button type="button" onclick="boton1()">Ejercicio 1: Temporizador</button>
+    <button type="button" onclick="boton2()">Ejercicio 2: Iniciar Reloj</button>
+    <button type="button" onclick="boton3()">
+      Ejercicio 3: Cuenta Regresiva
+    </button>
 
+    <script>
+      // Funcion para el primer boton
+      function boton1() {
+        var etiquetaP = document.createElement("p"); // Parrafo 1
+        var etiquetaP2 = document.createElement("p"); // Parrafo 1
 
-  <script>
-    function boton1(){
-        var boton = document.getElementById("boton1");
-        
-    }
+        etiquetaP.innerText = "Temporizador iniciado por 5 segundos..."; // Añadir al primer parrafo el texto
 
-  </script>
-</body>
+        // Crear el intervalo de 5 segundos
+        var intervalo = setTimeout(function () {
+          etiquetaP2.innerText = "¡Tiempo agotado!"; // Cuando se agote, mostrar el mensaje
+        }, 5000);
+
+        // Agregar los elementos al body
+        document.body.appendChild(etiquetaP);
+        document.body.appendChild(etiquetaP2);
+      }
+
+      // Funcion para el segundo boton
+      function boton2() {
+        var etiquetaDiv = document.createElement("div"); // Crear el div
+        var etiquetaP = document.createElement("p"); // Crear el parrafo
+
+        // Intervalo para mostrar x cada segundo
+        var intervalo = setInterval(function () {
+          var fecha = new Date(); // Guardar la fecha
+          var horas = fecha.getHours(); // Almacenar las horas
+          var minutos = fecha.getMinutes(); // Almacenar los minutos
+          var segundos = fecha.getSeconds(); // Almacenar los segundos
+
+          etiquetaDiv.innerText = horas + ":" + minutos + ":" + segundos; // Concatenar las variables para mostrarlo en texto
+        }, 1000);
+
+        etiquetaP.innerText = "Reloj iniciado..."; // Añadir Texto a la etiqueta P
+
+        // Agregar los elementos al body
+        document.body.appendChild(etiquetaDiv);
+        document.body.appendChild(etiquetaP);
+      }
+
+      function boton3() {
+        var etiquetaP = document.createElement("p"); // Crear el parrafo
+        var etiquetaDiv = document.createElement("div"); // Crear el div
+        var etiquetaP2 = document.createElement("p"); // Crear el parrafo
+
+        etiquetaP.innerText = "Cuenta regresiva iniciada desde 10...";
+
+        var tiempo = 10;
+        var listarSegundos = setInterval(function () {
+          if (!tiempo === 0) {
+            tiempo -= 1;
+            etiquetaDiv.innerText = tiempo;
+          }
+        }, 1000);
+
+        var intervalo = setTimeout(function () {
+          etiquetaP2.innerText = "¡Despegue!";
+        }, 10000);
+
+        // Agregar los elementos al body
+        document.body.appendChild(etiquetaP);
+        document.body.appendChild(etiquetaP2);
+        document.body.appendChild(etiquetaDiv);
+      }
+    </script>
+  </body>
 </html>

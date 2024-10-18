@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ejercicio 3</title>
+  </head>
+  <body>
+    <label for="nombre">Nombre:</label>
+    <input type="text" id="nombre" name="nombre" />
+
+    <button type="button" onclick="guardaCookie()">Guardar Cookie</button>
+    <button type="button" onclick="muestraCookie()">Mostrar Cookie</button>
+    <button type="button" onclick="borrarCookie()">Borrar Cookie</button>
+
+    <script>
+      function guardaCookie() {
+        var nombre = document.getElementById("nombre").value; // Recoge el valor del input
+
+        document.cookie = "nombre=" + encodeURIComponent(nombre); // Crea una cookie con dicho valor
+      }
+
+      function muestraCookie() {
+        var etiquetaP = document.createElement("p");
+        etiquetaP.innerText = document.cookie;
+
+        document.body.appendChild(etiquetaP);
+      }
+
+      function borrarCookie() {
+        document.cookie = "nombre=; max-age=0";
+      }
+    </script>
+  </body>
+</html>

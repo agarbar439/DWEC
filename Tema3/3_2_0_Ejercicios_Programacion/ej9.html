@@ -6,12 +6,43 @@
     <title>Ejercicio 9</title>
   </head>
   <body>
+    <input type="text" id="texto" placeholder="Buscar" />
+    <button type="submit" onclick="buscar()">Enviar</button>
+
+    <p id="mostrar"></p>
     <script>
-      var datos = [
-        "28924;Estepona",
-        "28001;Madrid",
-        "08002;Barcelona",
-      ];
+      var datos = ["28924;Estepona", "28001;Madrid", "08002;Barcelona"];
+
+      function buscar() {
+        var texto = document.getElementById("texto").value;
+        var mostrar = document.getElementById("mostrar");
+
+        // Comprobar is el texto introducido esta vacio
+        if (texto === "") {
+          mostrar.innerText = "No puede estar vacio";
+          return;
+        }
+
+        // Array para almacenar los resultados
+        var resultados = [];
+        for (var i = 0; i < datos.length; i++) {
+          // Almacenar la primera parte hasta el ;
+          var primeraParte = datos[i].split(";", 1)[0];
+          // Almacenar la segunda parte
+          var segundaParte = datos[i].split(";")[1];
+          // Comparar is los textos coinciden
+          if (
+            primeraParte.includes(texto) ||
+            segundaParte.toLowerCase().includes(texto.toLowerCase())
+          ) {
+            // Añadir al array los que coincidan
+            resultados.push(datos[i]);
+          }
+
+          // Mostrar los resultados que coinciden
+          mostrar.innerText = resultados.join(", ");
+        }
+      }
     </script>
   </body>
 </html>
