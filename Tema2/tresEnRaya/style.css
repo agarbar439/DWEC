@@ -1,0 +1,38 @@
+h1 {
+    margin-left: 850px;
+}
+
+/* Contenedor principal del div */
+#contenedor {
+    margin-left: 700px;
+
+}
+
+/* Celdas de la "tabla" */
+.celda {
+    border: 2px solid black;
+    text-align: center;
+    width: 150px;
+    height: 150px;
+    cursor: pointer;
+    font-size: 30px;
+    display: flex;
+    justify-content: center;
+    /* Centra horizontalmente */
+    align-items: center;
+    /* Centra verticalmente */
+
+}
+
+/* Bloques de 3 de la tabla*/
+.bloque {
+    display: flex;
+}
+
+/*Mensaje turno cada jugador */
+#mensajeTurno {
+    font-size: 20px;
+    padding-top: 50px;
+    margin-left: 850px;
+
+}
