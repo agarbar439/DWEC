@@ -46,6 +46,7 @@ function pintarValores() {
 
       mensajeTurno.innerText = `Turno de Jugador: ${turnoJugador}`; // Mostrar el turno de cada jugador
     } else {
+      mensajeTurno.innerText = " Juego terminado";
       juegoIniciado = false;
     }
   }
