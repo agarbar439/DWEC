@@ -18,10 +18,7 @@ h1 {
     font-size: 30px;
     display: flex;
     justify-content: center;
-    /* Centra horizontalmente */
     align-items: center;
-    /* Centra verticalmente */
-
 }
 
 /* Bloques de 3 de la tabla*/
@@ -35,4 +32,21 @@ h1 {
     padding-top: 50px;
     margin-left: 850px;
 
+}
+
+/*Boton de reinicio */
+#reinicio {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: aliceblue;
+    border-radius: 5px;
+    width: 80px;
+    height: 30px;
+    margin-left: 900px;
+    cursor: pointer;
+}
+
+#reinicio:hover {
+    background-color: lavender;
 }
