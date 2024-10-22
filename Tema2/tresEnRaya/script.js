@@ -15,7 +15,6 @@ function valor(e) {
   idPulsado = e.target.id;
   //alert(idPulsado);
   pintarValores();
-
 }
 
 // Funcion para pintar los valores en los div
@@ -28,7 +27,8 @@ function pintarValores() {
 
   // Si el juego esta iniciado
   if (juegoIniciado) {
-    if (divPulsado && divPulsado.textContent == "") { // Comprobar que la celda este vacia
+    if (divPulsado && divPulsado.textContent == "") {
+      // Comprobar que la celda este vacia
       if (turnoJugador == "X") {
         // Si el turno es X
         divPulsado.innerHTML = "X"; // Pintar X
@@ -48,33 +48,50 @@ function pintarValores() {
       mensajeTurno.innerText = "Juego terminado";
       juegoIniciado = false;
     }
+    comprobarGanador();
   }
   console.log(tablero);
 }
 
-// Funcion comprobar ganador
+// Función para comprobar el ganador
 function comprobarGanador() {
-    // Comprobar primera fila
-    if (tablero[0] === tablero[1] && tablero[1] === tablero[2]) {
-      juegoIniciado = false;
-      let ganador = tablero[0];
-      mensajeTurno.innerText = "El ganador es: " + ganador;
-      // Comprobar segunda fila
+  // Definir las combinaciones ganadoras
+  const combinacionesGanadoras = [
+    [0, 1, 2], // Primera fila
+    [3, 4, 5], // Segunda fila
+    [6, 7, 8], // Tercera fila
+    [0, 3, 6], // Primera columna
+    [1, 4, 7], // Segunda columna
+    [2, 5, 8], // Tercera columna
+    [0, 4, 8], // Diagonal principal
+    [2, 4, 6], // Diagonal secundaria
+  ];
 
-    } else if (tablero[3] === tablero[4] && tablero[4] === tablero[5]) {
-      juegoIniciado = false;
-      let ganador = tablero[3];
-      mensajeTurno.innerText = "El ganador es: " + ganador;
-      // Comprobar tercera fila
+  // Iterar a través de las combinaciones ganadoras
+  for (let i = 0; i < combinacionesGanadoras.length; i++) {
+    let a = combinacionesGanadoras[i][0];
+    let b = combinacionesGanadoras[i][1];
+    let c = combinacionesGanadoras[i][2];
 
-    } else if (tablero[6] === tablero[7] && tablero[7] === tablero[8]) {
-      juegoIniciado = false;
-      let ganador = tablero[6];
+    // Verificar si las posiciones de la combinación tienen el mismo valor y no están vacías
+    if (
+      tablero[a] !== "" &&
+      tablero[a] === tablero[b] &&
+      tablero[b] === tablero[c]
+    ) {
+      juegoIniciado = false; // Parar el juego
+      let ganador = tablero[a];
       mensajeTurno.innerText = "El ganador es: " + ganador;
+      return; // Salir de la función si hay un ganador
     }
-
   }
 
+  // Comprobar si el tablero está lleno y no hay ganador (empate)
+  if (!tablero.includes("")) {
+    juegoIniciado = false; // Detener el juego
+    mensajeTurno.innerText = "Es un empate";
+  }
+}
 
 // Funcion para resetear el juego
 function resetJuego() {
@@ -87,4 +104,3 @@ function resetJuego() {
   });
   mensajeTurno.innerText = "Pulsa sobre el tablero para volver a jugar";
 }
-
