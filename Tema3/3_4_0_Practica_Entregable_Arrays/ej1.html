@@ -17,9 +17,11 @@
 
     function filterNumbersGreaterThan(arr, numeroFiltrar) {
         let arrayFiltrado = []; // Arrayvacio para guardar los numeros
+        let index = 0;
         for (let i = 0; i < arr.length; i++) {
             if (arr[i] < numeroFiltrar) { // Si el numero de la posicion x es menor que el filtro
-                arrayFiltrado += arr[i] + " "; // Guardar el el array vacio
+                arrayFiltrado[index] = arr[i]; // Guardar el el array vacio
+                index++;
             }
         }
         return arrayFiltrado;
@@ -91,12 +93,11 @@
 
     // Ejercicio 5
     function getRange(a, b) {
-        let arr = [-5, -2, 1, 3, 4, 10, 13]; // Array con numeros
         let arrVacio = []; // Arrayvacio para introducir los del rango
-        for (let i = 0; i < arr.length; i++) {
-            if (arr[i] >= a && arr[i] <= b) { // Si es mayor que a o menor que b
-                arrVacio += arr[i] + ", "; // añadir al arrayvacio
-            }
+        let index = 0;
+        for (let i = a; i < b; i++) {
+            arrVacio[index] = i;
+            index++;
         }
         return arrVacio;
     }
