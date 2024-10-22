@@ -15,6 +15,7 @@ function valor(e) {
   idPulsado = e.target.id;
   //alert(idPulsado);
   pintarValores();
+
 }
 
 // Funcion para pintar los valores en los div
@@ -49,12 +50,10 @@ function pintarValores() {
     }
   }
   console.log(tablero);
-  
 }
 
 // Funcion comprobar ganador
 function comprobarGanador() {
-  for (let i = 0; i < tablero.length; i++) {
     // Comprobar primera fila
     if (tablero[0] === tablero[1] && tablero[1] === tablero[2]) {
       juegoIniciado = false;
@@ -75,7 +74,8 @@ function comprobarGanador() {
     }
 
   }
-}
+
+
 // Funcion para resetear el juego
 function resetJuego() {
   // Limpiar el array

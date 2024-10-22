@@ -1,52 +1,43 @@
+/* Estilo del título h1 */
 h1 {
-    margin-left: 850px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center; /* Centra el título horizontalmente */
+    max-width: 90%; /* Evita que el título sea demasiado ancho en pantallas grandes */
 }
 
 /* Contenedor principal del div */
 #contenedor {
-    margin-left: 700px;
-
+    margin: 0 auto; /* Centra el contenedor horizontalmente */
+    width: 80%; /* Usa un ancho relativo para que el contenedor se ajuste al tamaño de la pantalla */
+    max-width: 700px; /* Limita el ancho máximo en pantallas grandes */
 }
 
 /* Celdas de la "tabla" */
 .celda {
     border: 2px solid black;
     text-align: center;
-    width: 150px;
+    width: 100%; /* Las celdas se expanden para ocupar el espacio disponible */
     height: 150px;
     cursor: pointer;
-    font-size: 30px;
+    font-size: 2em; /* Ajusta el tamaño del texto relativo al tamaño del contenedor */
     display: flex;
-    justify-content: center;
-    align-items: center;
+    justify-content: center; /* Centra el contenido horizontalmente */
+    align-items: center; /* Centra el contenido verticalmente */
 }
 
-/* Bloques de 3 de la tabla*/
+/* Bloques de 3 de la tabla */
 .bloque {
     display: flex;
+    gap: 5px; /* Agrega un pequeño espacio entre los bloques */
+    width: 100%; /* Los bloques ocupan todo el ancho disponible */
 }
 
-/*Mensaje turno cada jugador */
+/* Mensaje de turno para cada jugador */
 #mensajeTurno {
-    font-size: 20px;
-    padding-top: 50px;
-    margin-left: 850px;
-
-}
-
-/*Boton de reinicio */
-#reinicio {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: aliceblue;
-    border-radius: 5px;
-    width: 80px;
-    height: 30px;
-    margin-left: 900px;
-    cursor: pointer;
-}
-
-#reinicio:hover {
-    background-color: lavender;
+    font-size: 1.5em; /* Ajusta el tamaño del texto relativo */
+    padding-top: 20px;
+    text-align: center; /* Centra el mensaje horizontalmente */
+    max-width: 90%; /* Evita que el mensaje sea demasiado ancho en pantallas grandes */
+    margin: 0 auto; /* Centra el contenedor del mensaje */
 }
