@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ejercicio 5</title>
+  </head>
+  <body>
+    <script>
+      let arr = [5, 2, 9, 1, 5, 6];
+
+      function ordenarArray(arr) {
+        let arrayVacio = [];
+        let index = 0;
+        for (let i = 1; i < arr.length; i++) {
+          let encontrado = false;
+          for (let j = 0; j < (arr.length -i); j++) {
+            if (arr[i] > arr[j +1]) {
+                encontrado = true;
+            }
+          }
+
+          if(encontrado){
+            arrayVacio[index] = arr[i];
+            index++;
+          }
+        }
+        return arrayVacio;
+      }
+      console.log(ordenarArray(arr));
+    </script>
+  </body>
+</html>

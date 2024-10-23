@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ejercicio 2</title>
+  </head>
+  <body>
+    <script>
+      let arr = [1, 2, 3, 4, 5];
+      let nPosiciones = 2;
+      let direction = "left";
+
+      function rotarArray(arr, nPosiciones, direction) {
+        let arrayPosiciones = [];
+        let arrayPosicionesRestantes = [];
+        let arrayTotal = [];
+
+        let index = 0;
+        let index2 = 0;
+        let index3 = 0;
+
+        // Guardar en arrayPosiciones desde la posicion hasta el final
+        for (let i = nPosiciones; i < arr.length; i++) {
+          arrayPosiciones[index] = arr[i];
+          index++;
+        }
+
+        // Guardar en arrayPosicionesRestantes el resto de numeros
+        for (let i = 0; i < nPosiciones; i++) {
+          arrayPosicionesRestantes[index2] = arr[i];
+          index2++;
+        }
+
+        // Si la direccion es lefy
+        if (direction === "left") {
+          for (let i = 0; i < arrayPosiciones.length; i++) {
+            // Recorrer el array donde estan guardadas los numeros desdde la posicion
+            arrayTotal[index3] = arrayPosiciones[i]; // Añadir al array total
+            index3++;
+          }
+
+          for (let x = 0; x < arrayPosicionesRestantes.length; x++) {
+            // Recorrer elvotro array donde esta el resto de numeros
+            arrayTotal[index3] = arrayPosicionesRestantes[x]; // Añadir al array total
+            index3++;
+          }
+          // si la direccion es right
+        } else if (direction === "right") {
+          for (let x = arrayPosicionesRestantes.length - 1; x >= 0; x--) {
+            arrayTotal[index3] = arrayPosicionesRestantes[x];
+            index3++;
+          }
+          for (let i = arrayPosiciones.length - 1; i >= 0; i--) {
+            arrayTotal[index3] = arrayPosiciones[i];
+            index3++;
+          }
+        }
+        return arrayTotal;
+      }
+      console.log(rotarArray(arr, nPosiciones, "left"));
+
+      console.log(rotarArray(arr, nPosiciones, "right"));
+    </script>
+  </body>
+</html>

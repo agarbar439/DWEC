@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ejercicio 4</title>
+  </head>
+  <body>
+    <script>
+      let arr = [1, 2, 2, 3, 4];
+
+      let arr2 = [2, 4, 4, 5, 6];
+
+      function elementosComunes(arr, arr2) {
+        let arrayVacio = []; // Vacio para guardar elementos
+        let index = 0;
+
+        for (let i = 0; i < arr.length; i++) {
+          // Recorrido dimesion 1
+          var encontrado = false;
+
+          for (let j = 0; j < arr2.length; j++) {
+            // Recorrido dimension 2
+            if (arr[i] === arr2[j]) {
+              encontrado = true;
+              break;
+            }
+          }
+
+          let existe = false; // Comprobacion que no haya un numero igual
+
+          for (let x = 0; x < arrayVacio.length; x++) {
+            // Recorrer array vacio para comprobar que no este ya el numero
+            if (arrayVacio[x] === arr[i]) {
+              // Si coincide
+              existe = true; // El valor ya existe
+              break;
+            }
+          }
+          if (encontrado && !existe) {
+            // Si ha encontrado uno igual y no existe en el array vacio
+            arrayVacio[index] = arr[i]; // Añade al array vacio
+            index++;
+          }
+        }
+
+        return arrayVacio;
+      }
+
+      console.log(elementosComunes(arr, arr2));
+    </script>
+  </body>
+</html>
