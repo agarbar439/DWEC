@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        const paresImpares = () => {
+            let arrayVacio = []; // Almacenar los numeros aleatorios
+            let index = 0;
+            // Insertar 100 num aleatorios en arrayVacio
+            for (let i = 0; i < 100; i++) {
+                arrayVacio[index] = Math.floor(Math.random() * 30);
+                index++;
+            }
+            // Mostrar el contenido
+            console.log(arrayVacio);
+            console.log("---");
+
+
+            // Guardar pares
+            let arrayPares = [];
+            let index2 = 0;
+            for (let x = 0; x < arrayVacio.length; x++) {
+                if (arrayVacio[x] % 2 === 0) { // Si es par
+                    arrayPares[index2] = arrayVacio[x]; // Guardar en el arrayPares
+                    index2++; // Aumentar el index de arrayPares
+                }
+            }
+
+            // Guardar impares
+            let arrayImpares = [];
+            let index3 = 0;
+            for (let x = 0; x < arrayVacio.length; x++) {
+                if (arrayVacio[x] % 2 != 0) { // Si es impar
+                    arrayImpares[index3] = arrayVacio[x]; // Guardar en el arrayImpares
+                    index3++; // Aumentar el index de arrayImpares
+                }
+            }
+
+            // Ordenar Array
+            let arrayFinal = []; // Array Final ordenado
+            let index4 = 0;
+            for (let i = 0; i < arrayPares.length; i++) {
+                arrayFinal[index4] = arrayPares[i]; // Guardar primerolos pares
+                index4++; // Aumentar el index para guardar en una nueva posicion
+            }
+            for (let x = 0; x < arrayImpares.length; x++) {
+                arrayFinal[index4] = arrayImpares[x]; // Guardar despues los impares 
+                index4++; // Seguir aumentando el index desde la posicion final de arrayPares
+            }
+
+            return arrayFinal;
+        }
+        console.log(paresImpares());
+
+    </script>
+</body>
+
+</html>

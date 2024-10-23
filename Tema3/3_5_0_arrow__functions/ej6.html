@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejecicio 6</title>
+</head>
+
+<body>
+    <input type="text" id="nombre" placeholder="Nombre">
+    <input type="text" id="clase" placeholder="Clase, (Primera mayuscula)">
+    <button type="submit" onclick="reservas()">Enviar</button>
+
+    <p id="resultado"></p>
+
+    <script>
+        const reservas = () => {
+            var nombre = document.getElementById("nombre").value;
+            var clase = document.getElementById("clase").value;
+            var etiquetaP = document.getElementById("resultado");
+
+
+            let capacidad = ["", "", "", "", "", "", "", "", "", ""]; //Cpacidad 10
+            var numAleatorioFirst = Math.floor(Math.random() * 5) + 0; // Numero random para las posiciones de first
+            var numAleatorioTurista = Math.floor(Math.random() * 5) + 5; // Numero random para las posiciones de turista
+            if (clase === "First") {  // Si es first
+                for (let i = 0; i < capacidad.length; i++) {
+                    capacidad[numAleatorioFirst] = nombre; // Asignar el nombre a una posicion aleatorio
+                }
+            } else if (clase === "Turista") { // Si es turista
+
+                for (let i = 0; i < capacidad.length; i++) {
+                    capacidad[numAleatorioTurista] = nombre; // Asignar el nombre a una posicion de turisya
+                }
+
+            }
+            let posicionAsiento = 0; // Para guardar la posicion del asiento para mostrar por consola
+            for (let i = 0; i < capacidad.length; i++) {
+                if (capacidad[i] === nombre) { // Si la posicion coincide con el nombre
+                    posicionAsiento = i; // Asignar a la variable la posicion del asiento
+                    break; // Salir del bucle 
+                }
+            }
+            posicionAsiento++; //Para que salga bien elnumero y no salga 0 de la posicion del array
+
+            // Comprobaciones por consola
+            console.log(capacidad); // MOstrar el array por consola
+            console.log("Nombre: " + nombre + ", asiento: " + posicionAsiento + ", clase: " + clase);
+
+            // Resultado
+            if (nombre === "" || clase != "First" && clase != "Turista") { // Si no ha escrito nada en el nombre o no se ha escrito la clase correctamente
+                etiquetaP.innerText = ""; // NO mostrar la tarjeta
+            } else { // Si no estavacio el nombre, mostrar la tarjeta
+                etiquetaP.innerText = "Nombre: " + nombre + ", asiento: " + posicionAsiento + ", clase: " + clase;
+
+            }
+
+        }
+
+    </script>
+
+</body>
+
+</html>

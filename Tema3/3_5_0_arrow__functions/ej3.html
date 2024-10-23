@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        const filtrarPares = (arr) => {
+            let arrayVacio = []; // Array para guardar los pares 
+            let index = 0; // Controlar laposicion del array vacio
+            for (let i = 0; i < arr.length; i++) {
+                if (arr[i] % 2 === 0) { // Si el resto entre dos es 0
+                    arrayVacio[index] = arr[i]; // Añadir al arrayvacio
+                    index++; // Aumentar una posicion 
+                }
+            }
+            return arrayVacio; // Devolver resultado
+        }
+        const numeros = [1, 2, 3, 4, 5, 6, 7, 8]; //Array de numeros
+        console.log(filtrarPares(numeros)); // Comprobacion
+    </script>
+</body>
+
+</html>
