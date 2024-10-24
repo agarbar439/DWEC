@@ -10,54 +10,50 @@
 <body>
     <input type="text" id="nombre" placeholder="Nombre">
     <input type="text" id="clase" placeholder="Clase, (Primera mayuscula)">
+    <input type="text" id="asiento" placeholder="Numero asiento">
+
     <button type="submit" onclick="reservas()">Enviar</button>
 
     <p id="resultado"></p>
 
     <script>
+        const capacidad = ["", "", "", "", "", "", "", "", "", ""]; // 10 asientos
+
         const reservas = () => {
-            var nombre = document.getElementById("nombre").value;
-            var clase = document.getElementById("clase").value;
-            var etiquetaP = document.getElementById("resultado");
+            // Recoger los valores de los input
+            const nombre = document.getElementById("nombre").value;
+            const clase = document.getElementById("clase").value;
+            const asiento = parseInt(document.getElementById("asiento").value);
+            const etiquetaP = document.getElementById("resultado");
 
-
-            let capacidad = ["", "", "", "", "", "", "", "", "", ""]; //Cpacidad 10
-            var numAleatorioFirst = Math.floor(Math.random() * 5) + 0; // Numero random para las posiciones de first
-            var numAleatorioTurista = Math.floor(Math.random() * 5) + 5; // Numero random para las posiciones de turista
-            if (clase === "First") {  // Si es first
-                for (let i = 0; i < capacidad.length; i++) {
-                    capacidad[numAleatorioFirst] = nombre; // Asignar el nombre a una posicion aleatorio
-                }
-            } else if (clase === "Turista") { // Si es turista
-
-                for (let i = 0; i < capacidad.length; i++) {
-                    capacidad[numAleatorioTurista] = nombre; // Asignar el nombre a una posicion de turisya
-                }
-
+            if (nombre === "" || (clase !== "First" && clase !== "Turista")) { // Si hay algun campo vacio o erroneo
+                etiquetaP.innerText = "Error."; // Error
+                return;
             }
-            let posicionAsiento = 0; // Para guardar la posicion del asiento para mostrar por consola
-            for (let i = 0; i < capacidad.length; i++) {
-                if (capacidad[i] === nombre) { // Si la posicion coincide con el nombre
-                    posicionAsiento = i; // Asignar a la variable la posicion del asiento
-                    break; // Salir del bucle 
+
+            if (clase === "First" && asiento > 0 && asiento <= 5) { // Si es first y el asiento entre 1 y 5
+                if (capacidad[asiento - 1] === "") { // Si el asiento esta vacio, (contorlar el array)
+                    capacidad[asiento - 1] = nombre; // Asignar el nombre
+                    etiquetaP.innerText = "Nombre: " + nombre + ", "  + "Asiento: " +  asiento + ", Clase: " + clase;
+                } else {
+                    etiquetaP.innerText = "El asiento ya esta ocupado";
                 }
+            } else if (clase === "Turista" && asiento > 5 && asiento <= 10) { // Si es turista, el asiento mayor que 5 y menor igual que 10
+                if (capacidad[asiento - 1] === "") { // Si el asiento esta vacio
+                    capacidad[asiento - 1] = nombre; // Asignar el nombre
+                    etiquetaP.innerText = "Nombre: " + nombre + ", "  + "Asiento: " +  asiento + ", Clase: " + clase;
+                } else {
+                    etiquetaP.innerText = "El asiento ya esta ocupado";
+                }
+            } else {
+                etiquetaP.innerText = "Número de asiento no válido";
             }
-            posicionAsiento++; //Para que salga bien elnumero y no salga 0 de la posicion del array
 
             // Comprobaciones por consola
-            console.log(capacidad); // MOstrar el array por consola
-            console.log("Nombre: " + nombre + ", asiento: " + posicionAsiento + ", clase: " + clase);
+            console.log(capacidad);
 
-            // Resultado
-            if (nombre === "" || clase != "First" && clase != "Turista") { // Si no ha escrito nada en el nombre o no se ha escrito la clase correctamente
-                etiquetaP.innerText = ""; // NO mostrar la tarjeta
-            } else { // Si no estavacio el nombre, mostrar la tarjeta
-                etiquetaP.innerText = "Nombre: " + nombre + ", asiento: " + posicionAsiento + ", clase: " + clase;
-
-            }
-
+            //Modificar que salgan los cuadros y seleccionar el asiento pinchando
         }
-
     </script>
 
 </body>
